@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es"
       data-lang="es"
       data-typography="A"
@@ -17,8 +17,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500&display=swap">
 <style>
 /* =========================================================
-   MAMBA ARCHVIZ — Web definitiva
-   typography:A · palette:dark · spacing:compact
+   MAMBA ARCHVIZ — MOCKUP DE OPCIONES v2
+   Combo elegido: typography:A · palette:dark · spacing:compact
    presentation:asym · buttons:gold · hover:split · scroll:parallax
    ========================================================= */
 
@@ -168,16 +168,10 @@ nav.top {
 }
 nav.top.is-scrolled { padding: 12px var(--pad-page); }
 nav.top .brand-mark {
-  display: inline-flex; align-items: center; line-height: 0;
+  font-family: var(--font-body); font-weight: 500; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-0);
   text-decoration: none;
 }
-nav.top .brand-mark img {
-  height: 22px; width: auto; display: block;
-  filter: brightness(0) invert(1); opacity: 0.95;
-  transition: opacity var(--dur-fast), height var(--dur-mid) var(--ease-out);
-}
-nav.top .brand-mark:hover img { opacity: 1; }
-nav.top.is-scrolled .brand-mark img { height: 18px; }
 nav.top .links { display:flex; gap: 24px; }
 nav.top .links a {
   color: var(--fg-2); text-decoration: none; font-size: 11px;
@@ -229,16 +223,12 @@ section.hero .hero-bg {
   position: absolute; inset: 0; z-index: 0;
   background-image: url('./renders/6-Rosasur%20Park/61.jpg');
   background-size: cover; background-position: center;
-  filter: grayscale(0.45) brightness(0.5) contrast(1.05);
-  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 55%, black 25%, transparent 80%);
-          mask-image: radial-gradient(ellipse 70% 65% at 50% 55%, black 25%, transparent 80%);
+  filter: grayscale(0.4) brightness(0.55);
 }
 section.hero .hero-mask {
   position: absolute; inset:0; z-index: 1;
-  background:
-    radial-gradient(ellipse 50% 45% at 50% 55%, rgba(212,175,55,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse at center, transparent 0%, var(--bg-1) 92%),
-    linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 30%, var(--bg-1) 100%);
+  background: radial-gradient(ellipse at center, transparent 0%, var(--bg-1) 90%),
+              linear-gradient(to bottom, transparent 0%, var(--bg-1) 100%);
 }
 section.hero .hero-content { position: relative; z-index: 2; max-width: var(--max-content); margin: 0 auto; width: 100%; }
 section.hero .eyebrow { margin-bottom: 24px; }
@@ -435,16 +425,10 @@ section.interlude .layer {
   will-change: transform;
 }
 section.interlude .layer.l1 {
-  background-image: url('./design-system/assets/backgrounds/bg-concrete.jpg');
-  filter: grayscale(1) brightness(0.32) contrast(1.12); z-index: 0;
+  background-image: url('./web-reference/backgrounds%20currents/imatge%206.jpg');
+  filter: grayscale(1) brightness(0.28) contrast(0.85); z-index: 0;
 }
-section.interlude .layer.l2 {
-  position: absolute; inset: -25%;
-  background-image: url('./design-system/assets/backgrounds/bg-pattern-dark.jpg');
-  background-size: 520px auto; background-repeat: repeat;
-  opacity: 0.07; mix-blend-mode: screen; z-index: 1;
-  will-change: transform;
-}
+/* L2 eliminado: solo 1 capa para evitar doble fondo confuso */
 /* Vignette central + bordes — garantiza que el texto se lea */
 section.interlude .vignette {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
@@ -612,97 +596,6 @@ section.films .films-inner { max-width: var(--max-content); margin: 0 auto; }
   padding-top: calc(var(--gap-section) * 0.5);
   border-top: 1px solid var(--line-1);
 }
-
-/* ---------- 13.5 BACKWALLS · TEASER ---------- */
-section.bw-teaser {
-  position: relative; overflow: hidden;
-  min-height: 56vh;
-  display: grid; place-items: center;
-  padding: clamp(80px, 10vh, 140px) var(--pad-page);
-  background: var(--bg-0);
-  border-top: 1px solid var(--line-1);
-}
-section.bw-teaser .bw-teaser-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background-image: url('./BACKWALLS/XOCAS/xocas%204k.jpg');
-  background-size: cover; background-position: center;
-  filter: grayscale(0.55) brightness(0.42) contrast(1.12);
-}
-section.bw-teaser .bw-teaser-glow {
-  position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background:
-    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(255,107,107,0.18) 0%, transparent 65%),
-    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, transparent 35%, transparent 65%, rgba(10,10,10,0.85) 100%);
-}
-section.bw-teaser .bw-teaser-inner {
-  position: relative; z-index: 2;
-  text-align: center; max-width: 760px;
-}
-section.bw-teaser .bw-teaser-eyebrow { color: var(--coral, #ff6b6b); }
-section.bw-teaser .bw-teaser-eyebrow::before { background: var(--coral, #ff6b6b); }
-section.bw-teaser .bw-teaser-title {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(48px, 6.4vw, 96px);
-  line-height: 1.0; letter-spacing: -0.025em;
-  color: var(--fg-0); margin-top: 32px;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.6);
-  text-wrap: balance;
-}
-section.bw-teaser .bw-teaser-title em.brand {
-  font-style: italic; color: var(--fg-1); font-family: var(--font-display);
-}
-@media (max-width: 900px) {
-  section.bw-teaser { min-height: 42vh; }
-}
-
-/* ---------- TIPOGRAFÍA · refinamiento titulares grandes ---------- */
-section.estudio h2,
-section.contacto .contact-left h2,
-section.hero h1 {
-  letter-spacing: -0.022em;
-  line-height: 1.02;
-  text-wrap: balance;
-}
-section.work h2,
-section.tours h2,
-section.films h2,
-section.backwalls h2 {
-  letter-spacing: -0.015em;
-  line-height: 1.05;
-  text-wrap: balance;
-}
-h1 em.brand, h2 em.brand {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--fg-1);
-  letter-spacing: -0.02em;
-}
-
-/* ---------- HOVER STATES · refinamiento ---------- */
-section.work .work-card { transition: transform var(--dur-mid) var(--ease-out); }
-section.work .work-card img {
-  transition: transform 800ms var(--ease-arch), filter 600ms var(--ease-out);
-}
-section.work .work-card:hover img {
-  transform: scale(1.04);
-  filter: brightness(1.05) contrast(1.05);
-}
-.service-tile {
-  position: relative; transition: transform var(--dur-mid) var(--ease-out);
-}
-.service-tile::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(255,107,107,0.0) 100%);
-  pointer-events: none; transition: background 400ms var(--ease-out);
-}
-.service-tile:hover { transform: translateY(-3px); }
-.service-tile:hover::after {
-  background: linear-gradient(180deg, transparent 40%, rgba(255,107,107,0.18) 100%);
-}
-.btn, button.btn, a.btn { transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
-.btn:hover, button.btn:hover, a.btn:hover { transform: translateY(-1px); }
-.btn:active, button.btn:active, a.btn:active { transform: translateY(0); }
 
 /* ---------- 14. BACKWALLS ---------- */
 section.backwalls {
@@ -1144,55 +1037,6 @@ footer .copy {
   .services-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
 }
 
-/* ---------- 19. PANEL DE CONTROL ---------- */
-#controls {
-  position: fixed; top: 16px; right: 16px; z-index: 200;
-  background: rgba(15,15,15,0.96); color: #fff;
-  border: 1px solid rgba(255,255,255,0.16); border-radius: 6px;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px;
-  width: 280px; max-height: calc(100vh - 32px); overflow: auto;
-}
-#controls header {
-  padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.1);
-  display:flex; align-items:center; justify-content:space-between;
-}
-#controls header .title { letter-spacing: 0.18em; text-transform: uppercase; }
-#controls header .toggle { cursor: pointer; padding: 2px 6px; opacity: 0.7; }
-#controls .body { padding: 12px 16px 16px; }
-#controls.collapsed .body { display: none; }
-#controls .group { margin-bottom: 16px; }
-#controls .group:last-child { margin-bottom: 0; }
-#controls .group label {
-  display:block; opacity: 0.55; letter-spacing: 0.18em; text-transform: uppercase;
-  font-size: 10px; margin-bottom: 6px;
-}
-#controls .opts { display: flex; gap: 4px; flex-wrap: wrap; }
-#controls .opt {
-  flex: 1; min-width: 54px; padding: 8px 6px; cursor: pointer; text-align: center;
-  background: rgba(255,255,255,0.04); color: #fff;
-  border: 1px solid rgba(255,255,255,0.12);
-  font-family: inherit; font-size: 10px; letter-spacing: 0.08em;
-  transition: all 0.15s;
-}
-#controls .opt:hover { background: rgba(255,255,255,0.1); }
-#controls .opt.on { background: var(--accent); color: #0d0d0d; border-color: var(--accent); }
-#controls .footer {
-  display:flex; gap: 6px; padding: 12px 16px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-#controls .footer button {
-  flex: 1; padding: 8px; background: rgba(255,255,255,0.06); color: #fff;
-  border: 1px solid rgba(255,255,255,0.16); cursor: pointer;
-  font-family: inherit; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-}
-#controls .footer button:hover { background: rgba(255,255,255,0.14); }
-#controls .toast {
-  position: absolute; left: 16px; right: 16px; bottom: -36px;
-  padding: 8px 12px; background: var(--accent); color: #0d0d0d;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  opacity: 0; transition: opacity 0.3s; text-align: center;
-}
-#controls .toast.show { opacity: 1; }
 
 /* ---------- 20. BILINGÜISMO ---------- */
 html[data-lang="es"] [data-i18n="en"] { display: none !important; }
@@ -1218,11 +1062,10 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
 </head>
 <body>
 
+
 <!-- ===================== NAV ===================== -->
 <nav class="top">
-  <a href="#" class="brand-mark" aria-label="Mamba ArchViz">
-    <img src="./design-system/assets/logos/mamba-wordmark-only.png" alt="Mamba ArchViz">
-  </a>
+  <a href="#" class="brand-mark">M · A · M · B · A</a>
   <div class="links">
     <a href="#work"><span data-i18n="es">Trabajo</span><span data-i18n="en">Work</span></a>
     <a href="#tours360"><span data-i18n="es">Tours 360°</span><span data-i18n="en">360° Tours</span></a>
@@ -1656,22 +1499,6 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
         @mambaarchviz
       </a>
     </div>
-  </div>
-</section>
-
-<!-- ===================== BACKWALLS · TEASER ===================== -->
-<section class="bw-teaser" aria-hidden="false">
-  <div class="bw-teaser-bg"></div>
-  <div class="bw-teaser-glow"></div>
-  <div class="bw-teaser-inner reveal">
-    <span class="eyebrow bw-teaser-eyebrow">
-      <span data-i18n="es">Producto · Para creadores</span>
-      <span data-i18n="en">Product · For creators</span>
-    </span>
-    <h2 class="bw-teaser-title">
-      <span data-i18n="es">Backwalls. <em class="brand">Tu fondo, hecho a medida.</em></span>
-      <span data-i18n="en">Backwalls. <em class="brand">Your backdrop, on demand.</em></span>
-    </h2>
   </div>
 </section>
 
@@ -2225,69 +2052,6 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
 </div>
 
 <script>
-/* ===================== ESTADO + SWITCHES ===================== */
-const root = document.documentElement;
-const STORAGE_KEY = 'mamba-mockup-v2';
-
-function applySaved() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    Object.entries(saved).forEach(([axis, val]) => root.dataset[axis] = val);
-    syncButtons();
-  } catch (e) {}
-}
-function syncButtons() {
-  document.querySelectorAll('#controls .opts').forEach(opts => {
-    const axis = opts.dataset.axis;
-    const cur = root.dataset[axis];
-    opts.querySelectorAll('.opt').forEach(b => b.classList.toggle('on', b.dataset.value === cur));
-  });
-}
-function saveState() {
-  const state = {};
-  ['typography','palette','spacing','presentation','buttons','hover','scroll'].forEach(a => state[a] = root.dataset[a]);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
-applySaved();
-
-document.querySelectorAll('#controls .opts').forEach(opts => {
-  opts.addEventListener('click', e => {
-    const btn = e.target.closest('.opt');
-    if (!btn) return;
-    opts.querySelectorAll('.opt').forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-    root.dataset[opts.dataset.axis] = btn.dataset.value;
-    saveState();
-  });
-});
-
-document.getElementById('ctrlToggle').addEventListener('click', () => {
-  document.getElementById('controls').classList.toggle('collapsed');
-});
-
-document.getElementById('btnReset').addEventListener('click', () => {
-  localStorage.removeItem(STORAGE_KEY);
-  location.reload();
-});
-
-document.getElementById('btnCopy').addEventListener('click', () => {
-  const state = {
-    typography: root.dataset.typography,
-    palette: root.dataset.palette,
-    spacing: root.dataset.spacing,
-    presentation: root.dataset.presentation,
-    buttons: root.dataset.buttons,
-    hover: root.dataset.hover,
-    scroll: root.dataset.scroll,
-  };
-  const txt = Object.entries(state).map(([k,v]) => `${k}: ${v}`).join(' · ');
-  navigator.clipboard.writeText(txt).then(() => {
-    const t = document.getElementById('toast');
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 1800);
-  });
-});
-
 /* ===================== LIGHTBOX ===================== */
 const projectVistas = {
   '6-Rosasur Park': ['61.jpg','62.jpg','63.jpg','64.jpg','65.jpg','72.jpg','73.jpg','74.jpg','75.jpg','76.jpg','78.jpg','79.jpg','80.jpg','81.jpg','82.jpg','83.jpg','84.jpg'],
