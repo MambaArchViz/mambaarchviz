@@ -1,0 +1,278 @@
+/* =====================================================================
+   MambaArchViz — Design System
+   Foundations: colors + typography
+   ---------------------------------------------------------------------
+   Pull this file into any artifact. It defines the dark architectural
+   palette, the type ramp, and the semantic shortcuts (h1, body, etc).
+   Fonts: Jost (geometric grotesk, echoes the thin MAMBA wordmark),
+   JetBrains Mono (technical captions, project tags),
+   Cormorant Garamond (rare editorial accent — used SPARINGLY).
+   ===================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+:root {
+  /* ────────────────────────────  COLORS  ──────────────────────────── */
+
+  /* Surfaces — dark theme is canonical. The light theme is the legacy
+     Squarespace look; keep it available for the splash + bilingual
+     selector page only. */
+  --bg-0:        #0a0a0a;   /* deepest — used for footer / hero overlay */
+  --bg-1:        #111111;   /* primary canvas */
+  --bg-2:        #161616;   /* cards / raised surfaces */
+  --bg-3:        #1d1d1d;   /* hover surface */
+  --bg-light:    #fafafa;   /* legacy light theme (splash only) */
+  --bg-paper:    #ffffff;   /* pure white, splash + print */
+
+  /* Foreground — the type and line-art layer */
+  --fg-0:        #ffffff;   /* pure white — display headlines, logo */
+  --fg-1:        #f2efea;   /* warm off-white — body on dark */
+  --fg-2:        #b8b3aa;   /* muted body — secondary text on dark */
+  --fg-3:        #6e6a63;   /* tertiary — captions, meta, dividers */
+  --fg-on-light: #1a1a1a;   /* near-black — body on light theme */
+  --fg-on-light-2: #555555; /* secondary on light theme */
+
+  /* Lines & borders — thin, low-contrast, architectural */
+  --line-1:      rgba(255, 255, 255, 0.08);  /* hairline on dark */
+  --line-2:      rgba(255, 255, 255, 0.16);  /* divider */
+  --line-3:      rgba(255, 255, 255, 0.32);  /* emphasized line */
+  --line-on-light: rgba(0, 0, 0, 0.10);
+
+  /* Accents — the dual signature.
+     GOLD is the new dark-theme primary (CTAs, active links, highlights).
+     CORAL is the heritage accent kept for buttons + pulls (warm bridge
+     to the legacy site, used on Backwalls landing). */
+  --gold:        #d4af37;
+  --gold-soft:   #e6c558;   /* hover / lifted */
+  --gold-deep:   #a8861f;   /* pressed / dark-on-gold */
+  --gold-wash:   rgba(212, 175, 55, 0.12);
+
+  --coral:       #ff6b6b;
+  --coral-soft:  #ff8a8a;
+  --coral-deep:  #d94f4f;
+  --coral-wash:  rgba(255, 107, 107, 0.12);
+
+  /* Imagery / render tones — colors borrowed from Mamba's actual
+     architectural renders. Use as supporting tints, NEVER as flat fills. */
+  --tone-concrete: #b9b1a4;
+  --tone-timber:   #8a6a4a;
+  --tone-moss:     #5a6a4f;
+  --tone-sky:      #c8d3dc;
+
+  /* Semantic feedback */
+  --success: #6ea870;
+  --warn:    #d4af37;     /* gold doubles as warn */
+  --error:   #ff6b6b;     /* coral doubles as error */
+
+  /* ────────────────────────────  TYPE  ──────────────────────────── */
+
+  /* Display = Instrument Serif (high-contrast editorial — Cosmos.so vibe).
+     UI / body = Jost (geometric grotesk — echoes the thin MAMBA wordmark).
+     Mono = JetBrains Mono (technical captions / project tags). */
+  --font-display:   'Instrument Serif', 'Times New Roman', Georgia, serif;
+  --font-ui:        'Jost', 'Helvetica Neue', system-ui, sans-serif;
+  --font-body:      'Jost', 'Helvetica Neue', system-ui, sans-serif;
+  --font-mono:      'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-editorial: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+
+  /* Type scale — modular, generous. 1.250 ratio. */
+  --fs-display:  clamp(48px, 6.4vw, 96px);  /* hero / splash wordmark */
+  --fs-h1:       clamp(36px, 4vw, 56px);
+  --fs-h2:       clamp(28px, 3vw, 40px);
+  --fs-h3:       22px;
+  --fs-h4:       18px;
+  --fs-body-lg:  18px;
+  --fs-body:     16px;
+  --fs-body-sm:  14px;
+  --fs-caption:  12px;
+  --fs-eyebrow:  11px;   /* uppercase mono labels — VERY common in this brand */
+
+  /* Line heights */
+  --lh-tight:  1.05;
+  --lh-snug:   1.2;
+  --lh-normal: 1.5;
+  --lh-loose:  1.75;
+
+  /* Tracking — heritage uppercase nav uses wide tracking */
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.08em;
+  --tracking-wider:  0.16em;
+  --tracking-widest: 0.32em;   /* logo + nav */
+
+  /* ───────────────────────────  SPACING  ────────────────────────── */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+  --s-11: 192px;   /* hero whitespace — breathing room is the brand */
+
+  /* ─────────────────────────  RADII / SHADOW  ─────────────────────── */
+  /* The brand is RECTILINEAR. Radii are restrained — never pill, never blob. */
+  --radius-0:  0;
+  --radius-1:  2px;     /* default — buttons, cards */
+  --radius-2:  4px;     /* image tiles */
+  --radius-pill: 999px; /* reserved for tag chips only */
+
+  /* Shadows are SOFT and almost invisible — architectural lighting,
+     not material design lifts. Most surfaces use a hairline border instead. */
+  --shadow-0: none;
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.04) inset, 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-2: 0 8px 24px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-3: 0 24px 48px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.3);
+  --shadow-glow: 0 0 0 1px rgba(212,175,55,0.4), 0 0 24px rgba(212,175,55,0.15);
+
+  /* ────────────────────────────  MOTION  ──────────────────────────── */
+  --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-arch:   cubic-bezier(0.16, 1, 0.3, 1);   /* slow-out, signature */
+
+  --dur-fast:   180ms;
+  --dur-mid:    400ms;
+  --dur-slow:   800ms;
+  --dur-reveal: 1200ms;   /* parallax reveal — the "destapado" effect */
+}
+
+/* ────────────────────────  SEMANTIC HELPERS  ────────────────────── */
+/* Drop these classes (or copy the rules) onto elements to inherit the
+   brand voice without rebuilding the ramp every time. */
+
+/* Display headlines — soft editorial serif, often in italic for the
+   poetic "moments". This is the SIGNATURE move of the new system. */
+.brand-display,
+h1.brand {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-0);
+}
+
+.brand-h1, h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-0);
+}
+
+.brand-h2, h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-0);
+}
+
+/* Italic editorial — used for poetic phrases that anchor each section.
+   Pair with .brand-h2 or .brand-display for the Cosmos.so feel. */
+.brand-italic,
+em.brand,
+.brand-editorial {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-0);
+}
+
+/* H3 / H4 stay in the geometric sans — for module / card titles. */
+.brand-h3, h3 {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--fg-1);
+}
+
+.brand-h4, h4 {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg-1);
+}
+
+.brand-body, p, body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-normal);
+  color: var(--fg-1);
+  text-wrap: pretty;
+}
+
+.brand-lead {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+  max-width: 60ch;
+}
+
+.brand-eyebrow,
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-eyebrow);
+  line-height: 1;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.brand-caption,
+small, .caption {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg-3);
+}
+
+.brand-mono,
+code, kbd, pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  letter-spacing: var(--tracking-normal);
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+a:hover {
+  color: var(--gold-soft);
+  border-bottom-color: var(--gold-soft);
+}
+
+/* The signature uppercase nav link — used in header + footer */
+.brand-navlink {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: var(--fs-body-sm);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--fg-2);
+  border-bottom: none;
+}
+.brand-navlink:hover { color: var(--gold); }
+.brand-navlink.is-active { color: var(--gold); }

@@ -1,0 +1,47 @@
+# ── Archivos temporales y sistema ──────────────────────────
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# ── Node.js ────────────────────────────────────────────────
+node_modules/
+package-lock.json
+
+# ── Carpetas de trabajo / referencia (no necesarias en producción) ──
+information/
+inspirations/
+web-reference/
+Design System/
+360/
+
+# ── Zips y archivos de distribución ────────────────────────
+*.zip
+
+# ── Scripts de build (solo se corren localmente) ───────────
+compress-images.js
+package.json
+
+# ── Carpetas de briefings / documentación interna ──────────
+web-files/
+
+# ── Assets del design system NO usados en producción ───────
+design-system/assets/renders/
+design-system/assets/backgrounds/
+design-system/uploads/
+design-system/preview/
+design-system/index.html
+
+# ── HTMLs de staging / Claude Design (no son la producción) ─
+index-clouddesign.html
+index-claudedesign.html
+index-final-claudedesign.html
+mockup-opciones.html
+
+# ── Claude memory (datos internos) ─────────────────────────
+.claude/
+
+# ── Archivos de documentación interna ──────────────────────
+PROJECT-MEMORY.md
+PROJECTS-INDEX.md
+MEDIA-LINKS.md

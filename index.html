@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="es"
+      data-lang="es"
+      data-typography="A"
+      data-spacing="compact"
+      data-presentation="asym"
+      data-buttons="gold"
+      data-hover="split"
+      data-scroll="parallax"
+      data-palette="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MambaArchViz · Mockup de opciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500&display=swap">
+<style>
+/* =========================================================
+   MAMBA ARCHVIZ — MOCKUP DE OPCIONES v2
+   Combo elegido: typography:A · palette:dark · spacing:compact
+   presentation:asym · buttons:gold · hover:split · scroll:parallax
+   ========================================================= */
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; }
+
+/* ---------- 1. PALETA y VARIABLES BASE (modo dark = canónico) ---------- */
+:root {
+  --bg-0: #0a0a0a; --bg-1: #111111; --bg-2: #161616; --bg-3: #1d1d1d;
+  --fg-0: #ffffff; --fg-1: #f2efea; --fg-2: #b8b3aa; --fg-3: #6e6a63;
+  --line-1: rgba(255,255,255,0.08); --line-2: rgba(255,255,255,0.16); --line-3: rgba(255,255,255,0.32);
+  --gold: #d4af37; --gold-soft:#e6c558; --coral:#ff6b6b; --coral-soft:#ff8a8a;
+  --accent: var(--gold);
+
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body:    'Jost', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --fs-display: clamp(48px, 6.4vw, 96px);
+  --fs-h1: clamp(36px, 4vw, 56px);
+  --fs-h2: clamp(28px, 3vw, 40px);
+  --fs-body: 16px;
+  --fs-eyebrow: 11px;
+
+  --tracking-display: -0.02em;
+  --tracking-body: 0;
+  --tracking-eyebrow: 0.32em;
+
+  --gap-section: 96px;
+  --gap-hero: 128px;
+  --gap-grid: 24px;
+  --pad-page: 40px;
+  --max-content: 1400px;
+
+  --radius-0: 0; --radius-1: 2px; --radius-2: 4px; --radius-pill: 999px;
+  --ease-arch: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms; --dur-mid: 400ms; --dur-slow: 800ms; --dur-reveal: 1200ms;
+
+  /* Extended accents */
+  --gold-deep: #a8861f; --gold-wash: rgba(212,175,55,0.12);
+  --coral-deep: #d94f4f; --coral-wash: rgba(255,107,107,0.12);
+
+  /* Shadows */
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.04) inset, 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-2: 0 8px 24px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-glow: 0 0 0 1px rgba(212,175,55,0.4), 0 0 24px rgba(212,175,55,0.15);
+
+  /* Tracking scale */
+  --tracking-tight:   -0.02em;
+  --tracking-wide:     0.08em;
+  --tracking-wider:    0.16em;
+  --tracking-widest:   0.32em;
+
+  /* 8-step spacing */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px;
+  --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px; --s-10:128px; --s-11:192px;
+}
+
+/* ---------- 2. EJE TIPOGRAFÍA ---------- */
+[data-typography="B"] {
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --tracking-display: -0.015em;
+  --fs-display: clamp(56px, 7vw, 110px);
+}
+[data-typography="C"] {
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+  --fs-display: clamp(28px, 3.2vw, 44px);
+  --fs-h1: clamp(20px, 2vw, 28px);
+  --fs-h2: 18px;
+  --fs-body: 13px;
+  --fs-eyebrow: 10px;
+  --tracking-display: -0.01em;
+  --tracking-body: 0.01em;
+}
+
+/* ---------- 3. EJE PALETA ---------- */
+[data-palette="light"] {
+  --bg-0: #ece8df; --bg-1: #f5f1e8; --bg-2: #fffaf0; --bg-3: #e0dccf;
+  --fg-0: #0d0d0d; --fg-1: #1a1a1a; --fg-2: #555; --fg-3: #888;
+  --line-1: rgba(0,0,0,0.08); --line-2: rgba(0,0,0,0.16); --line-3: rgba(0,0,0,0.32);
+  --accent: #0d0d0d;
+}
+
+/* ---------- 4. EJE ESPACIADO ---------- */
+[data-spacing="compact"]  { --gap-section: 48px;  --gap-hero: 64px;   --gap-grid: 12px; --pad-page: 24px; }
+[data-spacing="medium"]   { --gap-section: 96px;  --gap-hero: 128px;  --gap-grid: 24px; --pad-page: 40px; }
+[data-spacing="generous"] { --gap-section: 160px; --gap-hero: 192px;  --gap-grid: 32px; --pad-page: 56px; }
+
+/* ---------- 5. EJE BOTONES ---------- */
+.btn {
+  display:inline-flex; align-items:center; gap:10px;
+  padding: 12px 20px; cursor:pointer; border:none;
+  font-family: var(--font-body); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  transition: all var(--dur-fast) var(--ease-out);
+  text-decoration:none; color: inherit;
+}
+[data-buttons="gold"] .btn { background: var(--accent); color: #0d0d0d; border-radius: var(--radius-1); }
+[data-buttons="gold"] .btn:hover { background: var(--gold-soft); transform: translateY(-1px); }
+
+[data-buttons="bw"] .btn { background: transparent; color: var(--fg-0); border: 1px solid var(--fg-0); border-radius: 0; }
+[data-buttons="bw"] .btn:hover { background: var(--fg-0); color: var(--bg-0); }
+
+[data-buttons="coral"] .btn {
+  background: transparent; color: var(--coral); padding: 4px 0;
+  border-bottom: 1px solid var(--coral); border-radius: 0;
+}
+[data-buttons="coral"] .btn:hover { color: var(--coral-soft); border-bottom-width: 2px; padding-bottom: 3px; }
+
+/* ---------- 6. CHROME GENERAL ---------- */
+body {
+  font-family: var(--font-body); font-size: var(--fs-body);
+  color: var(--fg-1); background: var(--bg-1);
+  line-height: 1.5; letter-spacing: var(--tracking-body);
+  transition: background var(--dur-mid) var(--ease-out), color var(--dur-mid) var(--ease-out);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .display { font-family: var(--font-display); font-weight: 400; line-height: 1.05; letter-spacing: var(--tracking-display); color: var(--fg-0); }
+em.brand { font-style: italic; }
+.eyebrow {
+  font-family: var(--font-mono); font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow); text-transform: uppercase;
+  color: var(--accent); display:inline-flex; align-items:center; gap:14px;
+}
+.eyebrow::before { content:''; width:24px; height:1px; background: currentColor; display:block; }
+
+/* Grano sutil */
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay; opacity: 0.06;
+}
+
+/* ---------- 7. NAV ---------- */
+nav.top {
+  position: sticky; top:0; z-index: 50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 20px var(--pad-page);
+  background: linear-gradient(to bottom, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.5) 70%, transparent);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  transition: padding var(--dur-mid) var(--ease-out);
+}
+nav.top.is-scrolled { padding: 12px var(--pad-page); }
+nav.top .brand-mark {
+  font-family: var(--font-body); font-weight: 500; font-size: 14px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-0);
+  text-decoration: none;
+}
+nav.top .links { display:flex; gap: 24px; }
+nav.top .links a {
+  color: var(--fg-2); text-decoration: none; font-size: 11px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  transition: color var(--dur-fast);
+}
+nav.top .links a:hover, nav.top .links a.active { color: var(--accent); }
+
+/* Lang switcher prominente — toggle visible */
+.lang-pill {
+  display: flex; align-items: center; gap: 0;
+  border: 1px solid var(--line-3); border-radius: 2px; overflow: hidden;
+  font-family: var(--font-mono); font-size: 13px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px var(--line-2);
+}
+.lang-pill span[data-set-lang] {
+  padding: 9px 18px; cursor: pointer; letter-spacing: 0.24em;
+  color: var(--fg-2); transition: all 0.15s; user-select: none;
+  font-weight: 500;
+}
+.lang-pill span[data-set-lang].on {
+  background: var(--accent); color: #0d0d0d; font-weight: 700;
+  letter-spacing: 0.28em;
+}
+.lang-pill span[data-set-lang]:hover:not(.on) {
+  color: var(--fg-0); background: var(--line-2);
+}
+.lang-pill::before {
+  content: 'LANG'; font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.22em; color: var(--fg-3); padding: 0 10px;
+  border-right: 1px solid var(--line-2); align-self: center;
+  display: flex; line-height: 1;
+}
+
+/* Contenteditable — edición de texto inline en el mockup */
+[contenteditable] { outline: none; cursor: text; }
+[contenteditable]:hover { outline: 1px dashed rgba(212,175,55,0.4); border-radius: 1px; }
+[contenteditable]:focus { outline: 1px solid var(--accent); border-radius: 1px; background: rgba(212,175,55,0.04); }
+
+/* ---------- 8. HERO ---------- */
+section.hero {
+  position: relative; min-height: 92vh;
+  padding: var(--gap-hero) var(--pad-page) var(--gap-section);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  overflow: hidden;
+}
+section.hero .hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url('./renders/6-Rosasur%20Park/61.jpg');
+  background-size: cover; background-position: center;
+  filter: grayscale(0.4) brightness(0.55);
+}
+section.hero .hero-mask {
+  position: absolute; inset:0; z-index: 1;
+  background: radial-gradient(ellipse at center, transparent 0%, var(--bg-1) 90%),
+              linear-gradient(to bottom, transparent 0%, var(--bg-1) 100%);
+}
+section.hero .hero-content { position: relative; z-index: 2; max-width: var(--max-content); margin: 0 auto; width: 100%; }
+section.hero .eyebrow { margin-bottom: 24px; }
+section.hero h1 { font-size: var(--fs-display); max-width: 18ch; }
+section.hero .hero-sub { margin-top: 32px; max-width: 56ch; color: var(--fg-2); font-size: 18px; line-height: 1.7; }
+section.hero .hero-cta { margin-top: 48px; display:flex; gap: 16px; }
+.hero-scroll-cue {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  color: var(--fg-3); display: flex; flex-direction: column; align-items: center; gap: 12px;
+  pointer-events: none; z-index: 2;
+}
+.hero-scroll-cue::after {
+  content: ''; width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--fg-3), transparent);
+  animation: scrollPulse 2.2s var(--ease-in-out) infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.45; }
+  50%       { transform: scaleY(1.5); opacity: 1; }
+}
+
+/* ---------- 9. SELECTED WORK ---------- */
+section.work {
+  padding: var(--gap-section) var(--pad-page);
+  width: 100%;
+  position: relative; z-index: 2;
+}
+section.work .work-head {
+  max-width: var(--max-content); margin: 0 auto;
+  display:flex; justify-content:space-between; align-items:end; margin-bottom: 48px;
+}
+section.work h2 { font-size: var(--fs-h2); }
+section.work .work-head .eyebrow { margin-bottom: 16px; }
+
+/* ASYM GRID — 4 filas × 12 columnas, sin huecos */
+[data-presentation="asym"] .gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gap-grid);
+}
+/* Fila 1: 8+4=12 */
+[data-presentation="asym"] .tile.t-8  { grid-column: span 8;  aspect-ratio: 16/10; }
+[data-presentation="asym"] .tile.t-4p { grid-column: span 4;  aspect-ratio: 4/5; }
+/* Fila 2: 4+4+4=12 */
+[data-presentation="asym"] .tile.t-4l { grid-column: span 4;  aspect-ratio: 3/2; }
+/* Fila 3: 7+5=12 */
+[data-presentation="asym"] .tile.t-7  { grid-column: span 7;  aspect-ratio: 16/9; }
+[data-presentation="asym"] .tile.t-5l { grid-column: span 5;  aspect-ratio: 16/9; }
+[data-presentation="asym"] .tile.t-5p { grid-column: span 5;  aspect-ratio: 4/5; }
+/* Fila 4: 4+4+4=12 */
+/* (reutiliza t-4l) */
+
+/* PRESENTATION: ROW — fila editorial limpia 3-up */
+[data-presentation="row"] .gallery {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-grid);
+}
+[data-presentation="row"] .tile { grid-column: auto !important; aspect-ratio: 4/5 !important; }
+
+/* PRESENTATION: HORIZONTAL — scroll horizontal */
+[data-presentation="horizontal"] .gallery {
+  display: flex; overflow-x: auto; gap: var(--gap-grid); padding-bottom: 16px;
+  scroll-snap-type: x mandatory; scrollbar-color: var(--fg-3) transparent;
+}
+[data-presentation="horizontal"] .tile {
+  flex: 0 0 auto; width: 520px; aspect-ratio: 4/5;
+  scroll-snap-align: start; grid-column: auto !important;
+}
+
+/* TILE base */
+.tile {
+  position: relative; overflow: hidden; background: var(--bg-2);
+  border: 1px solid var(--line-1); border-radius: var(--radius-2);
+  cursor: pointer;
+}
+.tile img {
+  width:100%; height:100%; object-fit: cover; display: block;
+  transition: transform var(--dur-slow) var(--ease-arch), filter var(--dur-mid) var(--ease-out);
+}
+.tile .meta {
+  position: absolute; left: 16px; bottom: 16px; right: 16px; z-index: 2;
+  display: flex; align-items: end; justify-content: space-between;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity var(--dur-mid) var(--ease-out), transform var(--dur-mid) var(--ease-out);
+}
+.tile .meta .code { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--fg-2); }
+.tile .meta .title { font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--fg-0); }
+.tile:hover .meta { opacity: 1; transform: translateY(0); }
+
+/* HOVER fx: scale + saturate */
+[data-hover="scale"] .tile img { filter: grayscale(0.18) brightness(0.92); }
+[data-hover="scale"] .tile:hover img { transform: scale(1.04); filter: grayscale(0) brightness(1); }
+
+/* HOVER fx: split — banda inferior reveladora */
+[data-hover="split"] .tile { isolation: isolate; }
+[data-hover="split"] .tile img { filter: grayscale(0.15) brightness(0.92); transition: filter var(--dur-mid); }
+[data-hover="split"] .tile::after {
+  content:''; position: absolute; left:0; right:0; bottom:0; height: 0; z-index: 1;
+  background: linear-gradient(to top, var(--bg-0) 0%, transparent 100%);
+  transition: height var(--dur-mid) var(--ease-arch);
+  pointer-events: none;
+}
+[data-hover="split"] .tile:hover::after { height: 60%; }
+[data-hover="split"] .tile:hover img { filter: grayscale(0) brightness(1); }
+
+/* HOVER fx: magnetic */
+[data-hover="magnetic"] .tile { perspective: 1200px; }
+[data-hover="magnetic"] .tile img { will-change: transform; transition: transform var(--dur-slow) var(--ease-arch); filter: grayscale(0.15) brightness(0.94); }
+[data-hover="magnetic"] .tile:hover img { filter: none; }
+
+/* ---------- 10. ARCHIVE — carrusel horizontal ---------- */
+.archive-teaser {
+  margin-top: var(--gap-section);
+  padding-top: var(--gap-section);
+  border-top: 1px solid var(--line-1);
+}
+.archive-head {
+  display: flex; align-items: end; justify-content: space-between;
+  margin-bottom: 32px;
+  max-width: var(--max-content); margin-left: auto; margin-right: auto;
+}
+.archive-title {
+  font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 32px);
+  color: var(--fg-1); margin-top: 10px; line-height: 1.1;
+}
+.archive-carousel {
+  display: flex; gap: var(--gap-grid);
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  margin: 0 calc(-1 * var(--pad-page));
+  padding: 0 var(--pad-page) 20px;
+  scrollbar-color: var(--fg-3) transparent; scrollbar-width: thin;
+}
+.archive-carousel::-webkit-scrollbar { height: 2px; }
+.archive-carousel::-webkit-scrollbar-thumb { background: var(--fg-3); border-radius: 1px; }
+.archive-card {
+  flex: 0 0 260px; scroll-snap-align: start; aspect-ratio: 3/4;
+  position: relative; overflow: hidden; background: var(--bg-2);
+  border: 1px solid var(--line-1); border-radius: var(--radius-2); cursor: pointer;
+}
+.archive-card img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(0.45) brightness(0.88);
+  transition: filter var(--dur-mid), transform var(--dur-slow) var(--ease-arch);
+}
+.archive-card:hover img { filter: grayscale(0.1) brightness(1); transform: scale(1.04); }
+.archive-card .card-meta {
+  position: absolute; left: 12px; bottom: 12px; right: 12px; z-index: 2;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity var(--dur-mid), transform var(--dur-mid);
+}
+.archive-card:hover .card-meta { opacity: 1; transform: translateY(0); }
+.archive-card .card-code {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--accent);
+}
+.archive-card .card-name {
+  font-family: var(--font-display); font-style: italic; font-size: 18px;
+  color: var(--fg-0); margin-top: 2px;
+}
+/* CTA card al final del carrusel */
+.archive-cta-card {
+  flex: 0 0 240px; scroll-snap-align: start;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; min-height: 320px; aspect-ratio: auto;
+  border: 1px dashed var(--line-2); border-radius: var(--radius-2);
+  text-decoration: none; color: var(--fg-3);
+  transition: border-color var(--dur-fast), color var(--dur-fast);
+  padding: 24px;
+  background: transparent;
+}
+.archive-cta-card:hover { border-color: var(--accent); color: var(--accent); }
+.archive-cta-card svg { width: 32px; height: 32px; opacity: 0.6; }
+.archive-cta-card:hover svg { opacity: 1; }
+.archive-cta-card .cta-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; text-align: center; line-height: 1.8;
+}
+
+/* ---------- 11. INTERLUDE / parallax ---------- */
+section.interlude {
+  position: relative;
+  min-height: 70vh;
+  padding: clamp(80px, 10vh, 140px) var(--pad-page);
+  display:flex; align-items:center; justify-content:center;
+  /* overflow hidden solo en el clip interior */
+}
+section.interlude .bg-clip {
+  position: absolute; inset: 0; overflow: hidden; z-index: 0;
+}
+section.interlude .layer {
+  position: absolute; inset: -25%;
+  background-size: cover; background-position: center;
+  will-change: transform;
+}
+section.interlude .layer.l1 {
+  background-image: url('./web-reference/backgrounds%20currents/imatge%206.jpg');
+  filter: grayscale(1) brightness(0.28) contrast(0.85); z-index: 0;
+}
+/* L2 eliminado: solo 1 capa para evitar doble fondo confuso */
+/* Vignette central + bordes — garantiza que el texto se lea */
+section.interlude .vignette {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 50% at center, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.2) 60%, transparent 100%),
+    linear-gradient(to bottom, rgba(10,10,10,0.6) 0%, transparent 25%, transparent 75%, rgba(10,10,10,0.6) 100%);
+}
+section.interlude .quote {
+  position: relative; z-index: 3; text-align: center;
+  font-family: var(--font-display); font-size: clamp(28px, 4vw, 56px);
+  max-width: 22ch; line-height: 1.2;
+  color: var(--fg-0);
+  text-shadow: 0 2px 30px rgba(0,0,0,0.9), 0 0 2px rgba(0,0,0,0.5);
+  padding: 0 24px;
+}
+section.interlude .quote em.brand { color: var(--accent); }
+/* Fade-out inferior — disuelve el fondo hacia el color de página, sin corte brusco */
+section.interlude::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg-0));
+  z-index: 4; pointer-events: none;
+}
+
+/* SCROLL fx */
+[data-scroll="fade"] .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease-arch), transform 1s var(--ease-arch); }
+[data-scroll="fade"] .reveal.in { opacity: 1; transform: translateY(0); }
+
+[data-scroll="transitions"] section::before {
+  content:''; position:absolute; left:0; right:0; top:0; height: 1px;
+  background: var(--accent); transform-origin: left;
+  animation: cortina 1.2s var(--ease-arch) both;
+}
+@keyframes cortina { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---------- 12. TOURS 360° ---------- */
+section.tours {
+  padding: var(--gap-section) var(--pad-page);
+  max-width: var(--max-content); margin: 0 auto;
+}
+.tours-head { margin-bottom: 48px; }
+.tours-sub { margin-top: calc(var(--gap-section) * 1.2); }
+.tours-sub h3 {
+  font-family: var(--font-display); font-size: clamp(22px, 2.5vw, 36px);
+  margin: 16px 0 32px;
+}
+.tours-sub .eyebrow { margin-bottom: 0; }
+.tour-frame-wrap {
+  width: 100%; aspect-ratio: 16/9;
+  border: 1px solid var(--line-1); border-radius: var(--radius-2);
+  overflow: hidden; background: var(--bg-2); position: relative;
+}
+.tour-frame-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+.tour-frame-label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--fg-3); text-transform: uppercase; margin-top: 12px;
+}
+/* Grid de miniaturas 360 estáticas */
+.tours-static-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gap-grid);
+}
+.yt-card {
+  position: relative; aspect-ratio: 16/9; overflow: hidden;
+  background: var(--bg-2); border: 1px solid var(--line-1);
+  border-radius: var(--radius-2); cursor: pointer; text-decoration: none;
+  display: block;
+}
+.yt-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--dur-mid) var(--ease-arch); }
+.yt-card:hover img { transform: scale(1.04); }
+.yt-card .yt-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.25); transition: background var(--dur-fast);
+}
+.yt-card:hover .yt-overlay { background: rgba(0,0,0,0.45); }
+.yt-play-btn {
+  width: 52px; height: 36px; background: #ff0000; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+}
+.yt-play-btn::after {
+  content: ''; border: 8px solid transparent; border-left: 16px solid #fff; margin-left: 4px;
+}
+.yt-card .yt-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 24px 14px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+  color: var(--fg-0); text-transform: uppercase;
+}
+/* Placeholder para vídeos pendientes de ID */
+.yt-placeholder {
+  aspect-ratio: 16/9; background: var(--bg-2); border: 1px dashed var(--line-2);
+  border-radius: var(--radius-2); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px; cursor: default;
+  color: var(--fg-3);
+}
+.yt-placeholder .ph-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; text-align: center; line-height: 1.8;
+}
+
+/* ---------- 13. FILMS / ANIMACIONES ---------- */
+section.films {
+  padding: var(--gap-section) var(--pad-page);
+  background: var(--bg-0); border-top: 1px solid var(--line-1);
+}
+section.films .films-inner { max-width: var(--max-content); margin: 0 auto; }
+.films-head { display:flex; justify-content:space-between; align-items:end; margin-bottom: 48px; }
+.films-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: var(--gap-grid);
+}
+.film-card {
+  background: var(--bg-2); border: 1px solid var(--line-1);
+  border-radius: var(--radius-2); overflow: hidden;
+  text-decoration: none; display: block;
+  transition: border-color var(--dur-fast);
+}
+.film-card:hover { border-color: var(--line-3); }
+/* Thumbnail con play button (modo link externo) */
+.film-card-thumb {
+  aspect-ratio: 16/9; position: relative; overflow: hidden; background: var(--bg-3);
+}
+.film-card-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--dur-mid) var(--ease-arch), filter var(--dur-mid);
+  filter: brightness(0.85);
+}
+.film-card:hover .film-card-thumb img { transform: scale(1.04); filter: brightness(1); }
+.film-play-btn {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(10,10,10,0.7); border: 1.5px solid rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+.film-play-btn::after {
+  content: ''; border-style: solid; border-color: transparent transparent transparent #fff;
+  border-width: 7px 0 7px 13px; margin-left: 3px;
+}
+.film-card:hover .film-play-btn { background: rgba(212,175,55,0.85); border-color: var(--gold); }
+/* Embed (modo iframe, conservado por compatibilidad) */
+.film-card-embed { aspect-ratio: 16/9; }
+.film-card-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+/* Meta */
+.film-card-meta { padding: 12px 14px; border-top: 1px solid var(--line-1); }
+.film-card-meta .film-title, .film-title {
+  font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--fg-0);
+}
+.film-card-meta .film-year {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+  color: var(--accent); margin-top: 4px; text-transform: uppercase;
+}
+/* Placeholder para IDs pendientes */
+.film-placeholder-card {
+  aspect-ratio: 16/9; background: var(--bg-2); border: 1px dashed var(--line-2);
+  border-radius: var(--radius-2); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  color: var(--fg-3); font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase; text-align: center;
+}
+.films-cta-bar {
+  margin-top: calc(var(--gap-section) * 0.75);
+  display: flex; align-items: center; justify-content: center; gap: 24px;
+  padding-top: calc(var(--gap-section) * 0.5);
+  border-top: 1px solid var(--line-1);
+}
+
+/* ---------- 14. BACKWALLS ---------- */
+section.backwalls {
+  padding: var(--gap-section) var(--pad-page);
+  border-top: 1px solid var(--line-1);
+}
+section.backwalls .bw-inner { max-width: var(--max-content); margin: 0 auto; }
+.bw-head { margin-bottom: 48px; }
+.bw-intro-text { max-width: 60ch; color: var(--fg-2); font-size: 18px; line-height: 1.7; margin-top: 24px; }
+/* Bloque intro: video+guía (izq) | metodología (der) */
+.bw-intro-block {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  margin-top: 0; align-items: stretch;
+}
+.bw-intro-left { display: flex; flex-direction: column; gap: 16px; }
+.bw-intro-right { display: flex; flex-direction: column; gap: 20px; }
+/* Override schema dentro del bloque derecho — imagen ancho completo + leyenda debajo */
+.bw-intro-right .bw-schema {
+  display: flex; flex-direction: column; gap: 0;
+  margin: 0;
+  padding: 16px; background: var(--bg-2);
+  border: 1px solid var(--line-1); border-radius: var(--radius-2);
+  flex: 1;
+}
+.bw-intro-right .bw-schema-img { width: 100%; }
+.bw-intro-right .bw-schema-legend {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px;
+  padding-top: 16px; margin-top: 16px;
+  border-top: 1px solid var(--line-1);
+}
+.bw-intro-right .schema-legend-item { gap: 4px; }
+.bw-intro-right .legend-desc { font-size: 12px; line-height: 1.55; max-width: 100%; }
+.bw-intro-right .bw-gallery-head { margin-bottom: 0; }
+.bw-intro-right .bw-gallery-head h3 { font-size: clamp(18px, 1.8vw, 26px); margin-top: 10px; }
+/* bw-head dentro de intro-left: sin margen inferior extra */
+.bw-intro-left .bw-head { margin-bottom: 0; }
+/* Guía compacta dentro del bloque */
+.bw-intro-left .bw-guide {
+  padding: 20px 22px;
+  background: var(--bg-3); border: 1px solid var(--line-2);
+  border-radius: var(--radius-2); display: flex; flex-direction: column; gap: 14px;
+}
+.bw-intro-left .bw-guide p { font-size: 14px; margin-top: 0 !important; max-width: 100%; }
+.bw-intro-left .bw-guide h3 { font-size: clamp(17px, 1.6vw, 22px); margin-top: 8px; }
+/* Videos intro — 1 columna, se muestra solo el del idioma activo */
+.bw-videos-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--gap-grid);
+}
+.bw-video-wrap {
+  background: var(--bg-2); border: 1px solid var(--line-1);
+  border-radius: var(--radius-2); overflow: hidden;
+  text-decoration: none; display: block;
+  transition: border-color var(--dur-fast);
+}
+.bw-video-wrap:hover { border-color: var(--line-3); }
+.bw-video-wrap .video-thumb {
+  aspect-ratio: 16/9; position: relative; overflow: hidden; display: block;
+}
+.bw-video-wrap .video-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--dur-mid) var(--ease-arch), filter var(--dur-mid);
+  filter: brightness(0.8);
+}
+.bw-video-wrap:hover .video-thumb img { transform: scale(1.03); filter: brightness(1); }
+.bw-video-wrap .video-thumb .bw-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(10,10,10,0.72); border: 2px solid rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+.bw-video-wrap .video-thumb .bw-play::after {
+  content: ''; border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  border-width: 9px 0 9px 16px; margin-left: 4px;
+}
+.bw-video-wrap:hover .video-thumb .bw-play { background: rgba(255,107,107,0.85); border-color: var(--coral); }
+.bw-video-wrap .video-label {
+  padding: 12px 16px; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-3);
+  border-top: 1px solid var(--line-1);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.bw-video-wrap .video-label .ext-arrow {
+  font-size: 14px; color: var(--fg-3); transition: color var(--dur-fast), transform var(--dur-fast);
+  display: inline-block;
+}
+.bw-video-wrap:hover .video-label .ext-arrow { color: var(--coral); transform: translate(2px,-2px); }
+/* Galería de proyectos Backwalls */
+.bw-gallery-section { margin-top: var(--gap-section); }
+.bw-gallery-head { margin-bottom: 32px; }
+.bw-gallery-head h3 {
+  font-family: var(--font-display); font-size: clamp(22px, 2.5vw, 34px);
+  margin-top: 14px;
+}
+.bw-gallery-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+  gap: var(--gap-grid);
+}
+.bw-project-card {
+  background: var(--bg-2); border: 1px solid var(--line-1);
+  border-radius: var(--radius-2); overflow: hidden; cursor: pointer;
+  transition: border-color var(--dur-fast);
+}
+.bw-project-card:hover { border-color: var(--line-3); }
+.bw-project-card .bw-img-wrap { aspect-ratio: 16/9; overflow: hidden; }
+.bw-project-card .bw-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--dur-mid) var(--ease-arch);
+}
+.bw-project-card:hover .bw-img-wrap img { transform: scale(1.04); }
+.bw-project-card .bw-card-meta { padding: 14px 16px; }
+.bw-card-client {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent);
+}
+.bw-card-title {
+  font-family: var(--font-display); font-style: italic; font-size: 20px;
+  color: var(--fg-0); margin-top: 4px;
+}
+.bw-card-spec {
+  font-size: 12px; color: var(--fg-2); margin-top: 8px; line-height: 1.6;
+  font-family: var(--font-mono); letter-spacing: 0.06em;
+}
+/* Spec técnico en cada card de Backwalls */
+.bw-spec-row {
+  padding: 10px 16px; border-top: 1px solid var(--line-1);
+  display: flex; gap: 28px; align-items: center;
+  background: var(--bg-3);
+  flex-wrap: wrap;
+}
+.bw-spec-item { display: flex; flex-direction: column; gap: 3px; }
+.bw-spec-label {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--fg-3); opacity: 0.7;
+}
+.bw-spec-value {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+  color: var(--accent);
+}
+.bw-spec-value.pending { color: var(--fg-3); font-style: italic; }
+/* Horizonte: mini visual inline */
+.bw-horizon-bar {
+  display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 80px;
+}
+.bw-h-line {
+  height: 1px; width: 100%;
+  display: flex; align-items: center; gap: 6px;
+}
+.bw-h-line::before { content: ''; flex: 1; height: 1px; }
+.bw-h-line.h1::before { background: var(--coral); }
+.bw-h-line.h2::before { background: var(--gold); }
+.bw-h-line span {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em;
+  white-space: nowrap; flex-shrink: 0;
+}
+.bw-h-line.h1 span { color: var(--coral); }
+.bw-h-line.h2 span { color: var(--gold); }
+
+/* Schema / plantilla técnica */
+.bw-schema {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px;
+  align-items: center;
+  margin: 48px 0 var(--gap-section);
+  padding: 24px; background: var(--bg-2);
+  border: 1px solid var(--line-1); border-radius: var(--radius-2);
+}
+.bw-schema-img { position: relative; }
+.bw-schema-img img { width: 100%; display: block; border-radius: var(--radius-1); }
+.bw-schema-annotation {
+  position: absolute;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold);
+  background: rgba(10,10,10,0.72); padding: 4px 8px; border-radius: 2px;
+  border-left: 2px solid var(--gold);
+  pointer-events: none;
+}
+.ann-obj { top: 42%; left: 2%; }
+.ann-cam { top: 22%; right: 4%; }
+.ann-rule { top: 10%; left: 50%; transform: translateX(-50%); text-align: center;
+  background: rgba(10,10,10,0.82); border-left: none;
+  border-top: 1px solid var(--gold); white-space: nowrap; color: var(--fg-1);
+}
+.bw-schema-legend { display: flex; flex-direction: column; gap: 20px; }
+.schema-legend-item { display: flex; flex-direction: column; gap: 6px; }
+.legend-key {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--accent);
+}
+.legend-desc { font-size: 13px; color: var(--fg-2); line-height: 1.6; max-width: 36ch; }
+
+/* Views multi-angle en cards PBD */
+.bw-views-strip {
+  display: flex; gap: 4px; padding: 8px 10px;
+  border-top: 1px solid var(--line-1); background: var(--bg-3);
+  overflow-x: auto;
+}
+.bw-view-thumb {
+  flex: 0 0 64px; aspect-ratio: 16/9; overflow: hidden; border-radius: 2px;
+  cursor: pointer; opacity: 0.7; transition: opacity var(--dur-fast);
+}
+.bw-view-thumb:hover { opacity: 1; }
+.bw-view-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Fila de descarga de ejemplo en cada card Backwall */
+.bw-dl-row {
+  padding: 10px 14px; border-top: 1px solid var(--line-1);
+  background: var(--bg-3);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.bw-dl-row .dl-label {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--fg-3); line-height: 1.5;
+}
+.bw-dl-row .dl-label span { color: var(--fg-2); display: block; }
+.bw-dl-row .dl-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.bw-dl-row .btn-dl {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.18em;
+  text-transform: uppercase; text-decoration: none;
+  padding: 6px 12px; border: 1px solid var(--line-2); color: var(--fg-2);
+  border-radius: var(--radius-1); cursor: pointer;
+  transition: border-color var(--dur-fast), color var(--dur-fast), background var(--dur-fast);
+  white-space: nowrap;
+}
+.bw-dl-row .btn-dl:hover { border-color: var(--accent); color: var(--accent); }
+.bw-dl-row .btn-dl.primary { border-color: var(--accent); color: var(--accent); }
+.bw-dl-row .btn-dl.primary:hover { background: var(--accent); color: #0d0d0d; }
+
+/* Placeholder Backwalls */
+.bw-placeholder-card {
+  background: var(--bg-2); border: 1px dashed var(--line-2);
+  border-radius: var(--radius-2); aspect-ratio: 16/9;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; color: var(--fg-3);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; text-align: center;
+}
+
+/* ---------- 15. ESTUDIO / ABOUT ---------- */
+section.estudio {
+  padding: var(--gap-section) var(--pad-page);
+  max-width: var(--max-content); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;
+}
+section.estudio h2 { font-size: var(--fs-h1); }
+section.estudio p { color: var(--fg-2); font-size: 18px; line-height: 1.75; max-width: 60ch; }
+section.estudio p + p { margin-top: 20px; }
+section.estudio .about-meta {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em;
+  color: var(--fg-3); margin-top: 32px; line-height: 2;
+}
+
+/* ---------- 16. CONTACTO ---------- */
+section.contacto {
+  padding: var(--gap-section) var(--pad-page);
+  background: var(--bg-0); border-top: 1px solid var(--line-1);
+}
+section.contacto .contact-inner {
+  max-width: var(--max-content); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.contact-left h2 { font-size: var(--fs-h1); }
+.contact-left p { color: var(--fg-2); font-size: 18px; line-height: 1.7; margin-top: 24px; max-width: 44ch; }
+.contact-social { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; }
+.contact-social a {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+  color: var(--fg-2); text-decoration: none; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 12px;
+  transition: color var(--dur-fast);
+}
+.contact-social a::before { content: '→'; color: var(--accent); transition: transform var(--dur-fast); }
+.contact-social a:hover { color: var(--fg-0); }
+.contact-social a:hover::before { transform: translateX(4px); }
+.contact-email-big {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(20px, 2.5vw, 36px); color: var(--fg-0); margin-top: 32px;
+  text-decoration: none; display: block;
+  transition: color var(--dur-fast);
+}
+.contact-email-big:hover { color: var(--accent); }
+/* Placeholder formulario */
+.contact-form-placeholder {
+  background: var(--bg-2); border: 1px solid var(--line-1); border-radius: var(--radius-2);
+  padding: 32px; display: flex; flex-direction: column; gap: 16px;
+}
+.form-field-ph {
+  background: var(--bg-3); height: 44px; border-radius: var(--radius-1);
+  border: 1px solid var(--line-1); display: flex; align-items: center;
+  padding: 0 16px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.form-field-ph.textarea { height: 100px; align-items: flex-start; padding-top: 14px; }
+
+/* ---------- 17. FOOTER ---------- */
+footer {
+  background: var(--bg-0); padding: var(--gap-section) var(--pad-page);
+  border-top: 1px solid var(--line-1);
+}
+footer .foot {
+  max-width: var(--max-content); margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 64px;
+}
+footer .brand-display {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(36px, 5vw, 72px); color: var(--fg-0); line-height: 1;
+}
+footer h4 {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+}
+footer ul { list-style: none; }
+footer li { margin-bottom: 8px; }
+footer a { color: var(--fg-2); text-decoration: none; font-size: 13px; transition: color var(--dur-fast); }
+footer a:hover { color: var(--fg-0); }
+footer .copy {
+  max-width: var(--max-content); margin: 64px auto 0;
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); letter-spacing: 0.12em;
+}
+
+/* ---------- 18. LIGHTBOX ---------- */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 100;
+  background: rgba(10,10,10,0.96); backdrop-filter: blur(8px);
+  padding: 40px;
+}
+.lightbox.open { display: flex; flex-direction: column; }
+.lightbox header {
+  display:flex; justify-content:space-between; align-items:start;
+  padding-bottom: 20px; flex-shrink: 0;
+}
+.lightbox header .info .eyebrow { margin-bottom: 8px; }
+.lightbox header .info .title {
+  font-family: var(--font-display); font-style: italic; font-size: 32px; color: var(--fg-0);
+}
+.lightbox header .close {
+  background: rgba(255,255,255,0.08); border: 1px solid var(--line-3); color: var(--fg-0);
+  width: 52px; height: 52px; cursor:pointer; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border-radius: var(--radius-1);
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+.lightbox header .close:hover { background: rgba(255,255,255,0.16); border-color: var(--fg-0); }
+.lightbox .esc-hint {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
+  color: var(--fg-3); text-align: center; padding-bottom: 8px; flex-shrink: 0;
+}
+.lightbox .stage {
+  flex: 1 1 auto; position: relative;
+  display:flex; align-items:center; justify-content:center;
+  min-height: 0; min-width: 0; overflow: auto;
+}
+.lightbox .stage img {
+  max-width: 100%; max-height: 100%; width: auto; height: auto;
+  object-fit: contain; cursor: zoom-in;
+  transition: transform 0.45s var(--ease-arch);
+  transform-origin: center center;
+}
+.lightbox .stage img.zoomed {
+  cursor: zoom-out; transform: scale(2); max-width: none; max-height: none;
+}
+.lightbox .arrows {
+  display:flex; gap: 12px; align-items:center; justify-content:center;
+  padding-top: 20px; flex-shrink: 0;
+}
+.lightbox .arrows button {
+  background: none; border: 1px solid var(--line-2); color: var(--fg-0);
+  padding: 10px 20px; cursor: pointer;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+}
+.lightbox .arrows .index {
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); letter-spacing: 0.2em;
+}
+
+/* ---------- 19b. BW SAMPLE MODAL ---------- */
+.bw-sample-overlay {
+  display: none; position: fixed; inset: 0; z-index: 150;
+  background: rgba(10,10,10,0.94); backdrop-filter: blur(14px);
+  align-items: center; justify-content: center; padding: 32px;
+}
+.bw-sample-overlay.open { display: flex; }
+.bw-sample-panel {
+  background: var(--bg-1); border: 1px solid var(--line-2);
+  border-radius: var(--radius-2); max-width: 940px; width: 100%;
+  max-height: calc(100vh - 64px); display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.bw-sample-header {
+  padding: 20px 24px; border-bottom: 1px solid var(--line-1);
+  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+}
+.bw-sample-title {
+  font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--fg-0);
+}
+.bw-sample-close {
+  background: rgba(255,255,255,0.06); border: 1px solid var(--line-2); color: var(--fg-0);
+  width: 44px; height: 44px; cursor: pointer; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-1); transition: background var(--dur-fast);
+  flex-shrink: 0;
+}
+.bw-sample-close:hover { background: rgba(255,255,255,0.14); border-color: var(--fg-0); }
+.bw-sample-img-wrap {
+  flex: 1 1 auto; overflow: auto; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 28px; background: var(--bg-0);
+}
+.bw-sample-img-wrap img { max-width: 100%; max-height: 62vh; object-fit: contain; display: block; }
+.bw-sample-actions {
+  padding: 20px 24px; border-top: 1px solid var(--line-1);
+  display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; align-items: center;
+}
+.bw-sample-actions .btn { text-decoration: none; }
+.bw-sample-esc {
+  margin-left: auto; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.18em; color: var(--fg-3);
+}
+
+/* ---------- 19c. SERVICES GRID (Estudio) ---------- */
+.services-grid {
+  grid-column: 1 / -1; margin-top: 64px; padding-top: 48px;
+  border-top: 1px solid var(--line-1);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+}
+.service-item { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.service-icon {
+  width: 72px; height: 72px; border-radius: 50%;
+  object-fit: cover; opacity: 0.82;
+  filter: grayscale(0.2);
+  transition: opacity var(--dur-fast), filter var(--dur-fast);
+}
+.service-item:hover .service-icon { opacity: 1; filter: grayscale(0); }
+.service-name {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--fg-2); line-height: 1.5;
+}
+.service-desc { font-size: 14px; color: var(--fg-3); line-height: 1.65; }
+@media (max-width: 860px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+/* ---------- 19. PANEL DE CONTROL ---------- */
+#controls {
+  position: fixed; top: 16px; right: 16px; z-index: 200;
+  background: rgba(15,15,15,0.96); color: #fff;
+  border: 1px solid rgba(255,255,255,0.16); border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  width: 280px; max-height: calc(100vh - 32px); overflow: auto;
+}
+#controls header {
+  padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.1);
+  display:flex; align-items:center; justify-content:space-between;
+}
+#controls header .title { letter-spacing: 0.18em; text-transform: uppercase; }
+#controls header .toggle { cursor: pointer; padding: 2px 6px; opacity: 0.7; }
+#controls .body { padding: 12px 16px 16px; }
+#controls.collapsed .body { display: none; }
+#controls .group { margin-bottom: 16px; }
+#controls .group:last-child { margin-bottom: 0; }
+#controls .group label {
+  display:block; opacity: 0.55; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: 10px; margin-bottom: 6px;
+}
+#controls .opts { display: flex; gap: 4px; flex-wrap: wrap; }
+#controls .opt {
+  flex: 1; min-width: 54px; padding: 8px 6px; cursor: pointer; text-align: center;
+  background: rgba(255,255,255,0.04); color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  font-family: inherit; font-size: 10px; letter-spacing: 0.08em;
+  transition: all 0.15s;
+}
+#controls .opt:hover { background: rgba(255,255,255,0.1); }
+#controls .opt.on { background: var(--accent); color: #0d0d0d; border-color: var(--accent); }
+#controls .footer {
+  display:flex; gap: 6px; padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+#controls .footer button {
+  flex: 1; padding: 8px; background: rgba(255,255,255,0.06); color: #fff;
+  border: 1px solid rgba(255,255,255,0.16); cursor: pointer;
+  font-family: inherit; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+}
+#controls .footer button:hover { background: rgba(255,255,255,0.14); }
+#controls .toast {
+  position: absolute; left: 16px; right: 16px; bottom: -36px;
+  padding: 8px 12px; background: var(--accent); color: #0d0d0d;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  opacity: 0; transition: opacity 0.3s; text-align: center;
+}
+#controls .toast.show { opacity: 1; }
+
+/* ---------- 20. BILINGÜISMO ---------- */
+html[data-lang="es"] [data-i18n="en"] { display: none !important; }
+html[data-lang="en"] [data-i18n="es"] { display: none !important; }
+
+/* ---------- 21. FADE reveal ---------- */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-arch), transform 0.8s var(--ease-arch);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ---------- 22. RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  section.estudio { grid-template-columns: 1fr; }
+  section.contacto .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  footer .foot { grid-template-columns: 1fr 1fr; }
+  [data-presentation="asym"] .tile { grid-column: span 12 !important; aspect-ratio: 16/10 !important; }
+  .bw-videos-grid { grid-template-columns: 1fr; }
+  .films-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== PANEL DE CONTROL ===================== -->
+<aside id="controls">
+  <header>
+    <span class="title">Mockup · Opciones</span>
+    <span class="toggle" id="ctrlToggle">— colapsar</span>
+  </header>
+  <div class="body">
+
+    <div class="group">
+      <label>Tipografía</label>
+      <div class="opts" data-axis="typography">
+        <button class="opt on" data-value="A" title="Instrument Serif × Jost">A · Serif</button>
+        <button class="opt"    data-value="B" title="Newsreader × Inter">B · News</button>
+        <button class="opt"    data-value="C" title="Inter Tight small-type">C · Small</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>Paleta</label>
+      <div class="opts" data-axis="palette">
+        <button class="opt on" data-value="dark"  title="Dark canónico, gold accent">Dark</button>
+        <button class="opt"    data-value="light" title="B&W warm">Light B&amp;W</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>Espaciado</label>
+      <div class="opts" data-axis="spacing">
+        <button class="opt on" data-value="compact"  title="Industrial, denso">Compact</button>
+        <button class="opt"    data-value="medium"   title="Editorial">Medium</button>
+        <button class="opt"    data-value="generous" title="Lookbook">Generous</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>Galería</label>
+      <div class="opts" data-axis="presentation">
+        <button class="opt on" data-value="asym"       title="Grid 12-col asimétrico">Asym</button>
+        <button class="opt"    data-value="row"        title="Fila 3-up regular">Row</button>
+        <button class="opt"    data-value="horizontal" title="Scroll horizontal">Horiz.</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>Botones</label>
+      <div class="opts" data-axis="buttons">
+        <button class="opt on" data-value="gold"  title="Filled premium">Gold</button>
+        <button class="opt"    data-value="bw"    title="Ghost minimal">B&amp;W</button>
+        <button class="opt"    data-value="coral" title="Underline editorial">Coral</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>Hover imagen</label>
+      <div class="opts" data-axis="hover">
+        <button class="opt"    data-value="scale"    title="Zoom + saturate">Scale</button>
+        <button class="opt on" data-value="split"    title="Cortina reveladora">Split</button>
+        <button class="opt"    data-value="magnetic" title="Sigue al cursor">Magnet</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>Scroll FX</label>
+      <div class="opts" data-axis="scroll">
+        <button class="opt on" data-value="parallax"    title="Backgrounds currents">Parallax</button>
+        <button class="opt"    data-value="fade"        title="Fade reveal">Fade</button>
+        <button class="opt"    data-value="transitions" title="Cortina de sección">Trans.</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer">
+    <button id="btnCopy">Copiar combo</button>
+    <button id="btnReset">Reset</button>
+  </div>
+  <div class="toast" id="toast">copiado al portapapeles</div>
+</aside>
+
+<!-- ===================== NAV ===================== -->
+<nav class="top">
+  <a href="#" class="brand-mark">M · A · M · B · A</a>
+  <div class="links">
+    <a href="#work"><span data-i18n="es">Trabajo</span><span data-i18n="en">Work</span></a>
+    <a href="#tours360"><span data-i18n="es">Tours 360°</span><span data-i18n="en">360° Tours</span></a>
+    <a href="#films"><span data-i18n="es">Animaciones</span><span data-i18n="en">Films</span></a>
+    <a href="#backwalls">Backwalls</a>
+    <a href="#estudio"><span data-i18n="es">Estudio</span><span data-i18n="en">Studio</span></a>
+    <a href="#contacto"><span data-i18n="es">Contacto</span><span data-i18n="en">Contact</span></a>
+  </div>
+  <div class="lang-pill" id="langSwitcher">
+    <span data-set-lang="es" class="on">ES</span>
+    <span data-set-lang="en">EN</span>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-mask"></div>
+  <div class="hero-content reveal">
+    <span class="eyebrow">Mamba ArchViz · Barcelona · 2018 — 2026</span>
+    <h1 data-i18n="es" contenteditable="true">Arquitectura, <em class="brand">hecha visible.</em></h1>
+    <h1 data-i18n="en" contenteditable="true">Architecture, <em class="brand">made visible.</em></h1>
+    <p class="hero-sub" data-i18n="es" contenteditable="true">Visualización arquitectónica de alta gama, recorridos 360° y contenido inmersivo para estudios, promotores y creadores. Cada proyecto, una hipótesis de futuro renderizada con cuidado artesanal.</p>
+    <p class="hero-sub" data-i18n="en" contenteditable="true">High-end architectural visualization, 360° tours and immersive content for studios, developers and creators. Each project, a hypothesis for the future rendered with artisanal care.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn"><span data-i18n="es">Ver trabajo seleccionado</span><span data-i18n="en">See selected work</span></a>
+      <a href="#contacto" class="btn"><span data-i18n="es">Contactar</span><span data-i18n="en">Contact</span></a>
+    </div>
+  </div>
+  <div class="hero-scroll-cue">
+    <span data-i18n="es">SCROLL</span><span data-i18n="en">SCROLL</span>
+  </div>
+</section>
+
+<!-- ===================== SELECTED WORK ===================== -->
+<section class="work" id="work">
+  <div class="work-head">
+    <div>
+      <span class="eyebrow">
+        <span data-i18n="es">Trabajos seleccionados · 2020 — 2024</span>
+        <span data-i18n="en">Selected work · 2020 — 2024</span>
+      </span>
+      <h2 style="margin-top:16px;" data-i18n="es">Cada proyecto, <em class="brand">una hipótesis de futuro.</em></h2>
+      <h2 style="margin-top:16px;" data-i18n="en">Each project, <em class="brand">a hypothesis for the future.</em></h2>
+    </div>
+    <a href="#archive-teaser" class="btn">
+      <span data-i18n="es">Ver archivo</span><span data-i18n="en">See archive</span>
+    </a>
+  </div>
+
+  <!-- GALERÍA ASYM — 4 filas × 12 col, orientación imagen ↔ slot
+       Fila 1: Rosasur(8, 16:10) + LHL(4p, portrait) = 12   ← LHL es 9:16 → portrait ✓
+       Fila 2: Atalaya(4l) + CasaML(4l) + B&S(4l) = 12      ← todas landscape 16:9/3:2 ✓
+       Fila 3: MBA Cafe(7, 16:9, usa 11.jpg) + CasaAG(5l, 16:9) = 12  ← landscape ✓
+       Fila 4: Titan(4l) + Loft&house(4l) + Cabins(4l) = 12
+  -->
+  <div class="gallery">
+
+    <!-- Fila 1 -->
+    <article class="tile t-8 reveal"
+      data-project="6-Rosasur Park" data-code="006 / RES"
+      data-title="Rosasur Park" data-year="2022 · Zaragoza">
+      <img src="./renders/6-Rosasur%20Park/61.jpg" alt="Rosasur Park" loading="lazy" style="object-position:center 40%;">
+      <div class="meta">
+        <span class="code">006 / RES</span>
+        <span class="title">Rosasur Park</span>
+      </div>
+    </article>
+
+    <article class="tile t-4p reveal"
+      data-project="3-LHL House" data-code="003 / RES"
+      data-title="LHL House" data-year="2021">
+      <img src="./renders/3-LHL%20House/66%20ENH.jpg" alt="LHL House" loading="lazy">
+      <div class="meta">
+        <span class="code">003 / RES</span>
+        <span class="title">LHL House</span>
+      </div>
+    </article>
+
+    <!-- Fila 2: todas landscape -->
+    <article class="tile t-4l reveal"
+      data-project="1-Atalaya" data-code="001 / RES"
+      data-title="Atalaya" data-year="2020 · Barcelona">
+      <img src="./renders/1-Atalaya/33.jpg" alt="Atalaya" loading="lazy">
+      <div class="meta">
+        <span class="code">001 / RES</span>
+        <span class="title">Atalaya</span>
+      </div>
+    </article>
+
+    <article class="tile t-4l reveal"
+      data-project="8-casa ML" data-code="008 / RES"
+      data-title="Casa ML" data-year="2024 · Palau Solità i Plegamans">
+      <img src="./renders/8-casa%20ML/38.JPG" alt="Casa ML" loading="lazy">
+      <div class="meta">
+        <span class="code">008 / RES</span>
+        <span class="title">Casa ML</span>
+      </div>
+    </article>
+
+    <article class="tile t-4l reveal"
+      data-project="2-B&S" data-code="002 / RES"
+      data-title="B&amp;S" data-year="2022 · Barcelona">
+      <img src="./renders/2-B%26S/89.jpg" alt="B&S" loading="lazy">
+      <div class="meta">
+        <span class="code">002 / RES</span>
+        <span class="title">B&amp;S</span>
+      </div>
+    </article>
+
+    <!-- Fila 3: landscape wide + landscape 5-col -->
+    <article class="tile t-7 reveal"
+      data-project="5-MBA CAFE" data-code="005 / COM"
+      data-title="MBA Cafe" data-year="2021 · Barcelona">
+      <img src="./renders/5-MBA%20CAFE/11.jpg" alt="MBA Cafe" loading="lazy">
+      <div class="meta">
+        <span class="code">005 / COM</span>
+        <span class="title">MBA Cafe</span>
+      </div>
+    </article>
+
+    <article class="tile t-5l reveal"
+      data-project="7-casa AG" data-code="007 / RES"
+      data-title="Casa AG" data-year="2022 · Mirasol">
+      <img src="./renders/7-casa%20AG/85.jpg" alt="Casa AG" loading="lazy">
+      <div class="meta">
+        <span class="code">007 / RES</span>
+        <span class="title">Casa AG</span>
+      </div>
+    </article>
+
+    <!-- Fila 4 -->
+    <article class="tile t-4l reveal"
+      data-project="9-Oficinas i laboratorios Titan" data-code="009 / R&amp;D"
+      data-title="Oficinas Titan" data-year="2021 · R&amp;D">
+      <img src="./renders/9-Oficinas%20i%20laboratorios%20Titan/16.jpg" alt="Oficinas Titan" loading="lazy">
+      <div class="meta">
+        <span class="code">009 / R&amp;D</span>
+        <span class="title">Oficinas Titan</span>
+      </div>
+    </article>
+
+    <article class="tile t-4l reveal"
+      data-project="4-Loft&house Rehab" data-code="004 / RES"
+      data-title="Loft&amp;house" data-year="2024 · Barcelona">
+      <img src="./renders/4-Loft%26house%20Rehab/106.jpg" alt="Loft&house Rehab" loading="lazy">
+      <div class="meta">
+        <span class="code">004 / RES</span>
+        <span class="title">Loft&amp;house</span>
+      </div>
+    </article>
+
+    <article class="tile t-4l reveal"
+      data-project="10-cabins" data-code="010 / RES"
+      data-title="Cabins" data-year="2021 · Bosque">
+      <img src="./renders/10-cabins/102.jpg" alt="Cabins" loading="lazy">
+      <div class="meta">
+        <span class="code">010 / RES</span>
+        <span class="title">Cabins</span>
+      </div>
+    </article>
+
+  </div><!-- /.gallery -->
+
+  <!-- ARCHIVE TEASER — carrusel horizontal -->
+  <div class="archive-teaser" id="archive-teaser">
+    <div class="archive-head">
+      <div>
+        <span class="eyebrow">
+          <span data-i18n="es">Archivo · 2018 — 2024</span>
+          <span data-i18n="en">Archive · 2018 — 2024</span>
+        </span>
+        <p class="archive-title">
+          <span data-i18n="es">Más proyectos del estudio.</span>
+          <span data-i18n="en">More from the studio.</span>
+        </p>
+      </div>
+      <a href="https://www.instagram.com/mambaarchviz/" target="_blank" class="btn">
+        <span data-i18n="es">Ver en Instagram</span>
+        <span data-i18n="en">See on Instagram</span>
+      </a>
+    </div>
+    <div class="archive-carousel">
+
+      <article class="archive-card"
+        data-project="Casa PC" data-code="A01 / RES"
+        data-title="Casa PC" data-year="">
+        <img src="./renders/Casa%20PC/3.jpg" alt="Casa PC" loading="lazy">
+        <div class="card-meta">
+          <div class="card-code">A01 / RES</div>
+          <div class="card-name">Casa PC</div>
+        </div>
+      </article>
+
+      <article class="archive-card"
+        data-project="Can Costa" data-code="A02 / RES"
+        data-title="Can Costa" data-year="">
+        <img src="./renders/Can%20Costa/22.jpg" alt="Can Costa" loading="lazy">
+        <div class="card-meta">
+          <div class="card-code">A02 / RES</div>
+          <div class="card-name">Can Costa</div>
+        </div>
+      </article>
+
+      <article class="archive-card"
+        data-project="Casa 24" data-code="A03 / RES"
+        data-title="Casa 24" data-year="">
+        <img src="./renders/Casa%2024/13.jpg" alt="Casa 24" loading="lazy">
+        <div class="card-meta">
+          <div class="card-code">A03 / RES</div>
+          <div class="card-name">Casa 24</div>
+        </div>
+      </article>
+
+      <article class="archive-card"
+        data-project="Hall and teacher's office" data-code="A04 / EDU"
+        data-title="Hall &amp; office" data-year="">
+        <img src="./renders/Hall%20and%20teacher%27s%20office/27%20ENH.jpg" alt="Hall & office" loading="lazy">
+        <div class="card-meta">
+          <div class="card-code">A04 / EDU</div>
+          <div class="card-name">Hall &amp; office</div>
+        </div>
+      </article>
+
+      <article class="archive-card"
+        data-project="casa Els Monjos" data-code="A05 / RES"
+        data-title="Casa Els Monjos" data-year="">
+        <img src="./renders/casa%20Els%20Monjos/105.jpg" alt="Casa Els Monjos" loading="lazy"
+             onerror="this.style.display='none'">
+        <div class="card-meta">
+          <div class="card-code">A05 / RES</div>
+          <div class="card-name">Casa Els Monjos</div>
+        </div>
+      </article>
+
+      <!-- CTA final del carrusel -->
+      <a class="archive-cta-card"
+         href="https://www.instagram.com/mambaarchviz/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        <span class="cta-label">
+          <span data-i18n="es">Ver todo el trabajo<br>en Instagram →</span>
+          <span data-i18n="en">See all work<br>on Instagram →</span>
+        </span>
+      </a>
+
+    </div><!-- /.archive-carousel -->
+  </div><!-- /.archive-teaser -->
+
+</section>
+
+<!-- ===================== INTERLUDE / parallax currents ===================== -->
+<section class="interlude">
+  <div class="bg-clip">
+    <div class="layer l1" id="parallaxL1"></div>
+    <div class="layer l2" id="parallaxL2"></div>
+  </div>
+  <div class="vignette"></div>
+  <p class="quote">
+    <span data-i18n="es">Camina por el proyecto <em class="brand">antes de levantarlo.</em></span>
+    <span data-i18n="en">Walk through the project <em class="brand">before you build it.</em></span>
+  </p>
+</section>
+
+<!-- ===================== TOURS 360° ===================== -->
+<section class="tours reveal" id="tours360">
+  <div class="tours-head">
+    <span class="eyebrow">
+      <span data-i18n="es">Immersión espacial · desde 2020</span>
+      <span data-i18n="en">Spatial immersion · since 2020</span>
+    </span>
+    <h2 style="margin-top:16px;" data-i18n="es">Tours <em class="brand">360°</em></h2>
+    <h2 style="margin-top:16px;" data-i18n="en">360° <em class="brand">Tours</em></h2>
+  </div>
+
+  <!-- Sub-sección A: Fotografía estática 360 -->
+  <div class="tours-sub">
+    <span class="eyebrow">
+      <span data-i18n="es">Fotografía 360°</span>
+      <span data-i18n="en">360° Photography</span>
+    </span>
+    <h3 data-i18n="es">Imágenes <em class="brand">inmersivas.</em></h3>
+    <h3 data-i18n="en">Immersive <em class="brand">imagery.</em></h3>
+
+    <div class="tours-static-grid">
+
+      <a class="yt-card" href="https://www.youtube.com/watch?v=IGoK_lRTQZc" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/IGoK_lRTQZc/hqdefault.jpg" alt="360° · Imagen estática" loading="lazy">
+        <div class="yt-overlay"><div class="yt-play-btn"></div></div>
+        <span class="yt-caption" contenteditable="true">360° · 01</span>
+      </a>
+
+      <a class="yt-card" href="https://www.youtube.com/watch?v=9RQklx0siTc" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/9RQklx0siTc/hqdefault.jpg" alt="360° · Imagen estática" loading="lazy">
+        <div class="yt-overlay"><div class="yt-play-btn"></div></div>
+        <span class="yt-caption" contenteditable="true">360° · 02</span>
+      </a>
+
+      <a class="yt-card" href="https://www.youtube.com/watch?v=OfuTK-1Zt4Q" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/OfuTK-1Zt4Q/hqdefault.jpg" alt="360° · Imagen estática" loading="lazy">
+        <div class="yt-overlay"><div class="yt-play-btn"></div></div>
+        <span class="yt-caption" contenteditable="true">360° · 03</span>
+      </a>
+
+      <a class="yt-card" href="https://www.youtube.com/watch?v=T28hWLqBrNA" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/T28hWLqBrNA/hqdefault.jpg" alt="360° · Imagen estática" loading="lazy">
+        <div class="yt-overlay"><div class="yt-play-btn"></div></div>
+        <span class="yt-caption" contenteditable="true">360° · 04</span>
+      </a>
+
+    </div>
+    <div style="margin-top:24px;">
+      <a href="https://www.youtube.com/@mambaarchviz/videos" target="_blank" class="btn">
+        <span data-i18n="es">Ver canal completo</span>
+        <span data-i18n="en">See full channel</span>
+      </a>
+    </div>
+  </div><!-- /.tours-sub -->
+
+  <!-- Sub-sección B: Tour interactivo completo -->
+  <div class="tours-sub">
+    <span class="eyebrow">
+      <span data-i18n="es">Tour interactivo · Casa ML</span>
+      <span data-i18n="en">Interactive tour · Casa ML</span>
+    </span>
+    <h3 data-i18n="es">Recorre el espacio <em class="brand">en tiempo real.</em></h3>
+    <h3 data-i18n="en">Explore the space <em class="brand">in real time.</em></h3>
+
+    <div class="tour-frame-wrap">
+      <iframe
+        src="https://ths.li/6uizOA"
+        allow="fullscreen"
+        loading="lazy"
+        title="Casa ML · Tour 360° interactivo">
+      </iframe>
+    </div>
+    <p class="tour-frame-label">
+      <span data-i18n="es">008 / RES · Casa ML · 2024 · Palau Solità i Plegamans · Tour completo</span>
+      <span data-i18n="en">008 / RES · Casa ML · 2024 · Palau Solità i Plegamans · Full tour</span>
+    </p>
+  </div><!-- /.tours-sub -->
+
+</section>
+
+<!-- ===================== FILMS / ANIMACIONES ===================== -->
+<section class="films" id="films">
+  <div class="films-inner">
+    <div class="films-head">
+      <div>
+        <span class="eyebrow">
+          <span data-i18n="es">Movimiento · 2021 — 2024</span>
+          <span data-i18n="en">Motion · 2021 — 2024</span>
+        </span>
+        <h2 style="margin-top:16px;" data-i18n="es">Animaciones <em class="brand">arquitectónicas.</em></h2>
+        <h2 style="margin-top:16px;" data-i18n="en">Architectural <em class="brand">films.</em></h2>
+      </div>
+      <a href="https://www.youtube.com/@mambaarchviz/videos" target="_blank" class="btn">
+        <span data-i18n="es">Ver canal YouTube</span>
+        <span data-i18n="en">YouTube channel</span>
+      </a>
+    </div>
+
+    <div class="films-grid">
+
+      <a class="film-card" href="https://www.youtube.com/watch?v=XCg5tFp1Z8s" target="_blank" rel="noopener">
+        <div class="film-card-thumb">
+          <img src="https://img.youtube.com/vi/XCg5tFp1Z8s/hqdefault.jpg" alt="Animación arquitectónica" loading="lazy">
+          <div class="film-play-btn"></div>
+        </div>
+        <div class="film-card-meta">
+          <span class="film-code" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;">FILM · 01</span>
+          <div class="film-title" contenteditable="true">Animación 01</div>
+        </div>
+      </a>
+
+      <a class="film-card" href="https://www.youtube.com/watch?v=LBx2PPg-Gow" target="_blank" rel="noopener">
+        <div class="film-card-thumb">
+          <img src="https://img.youtube.com/vi/LBx2PPg-Gow/hqdefault.jpg" alt="Animación arquitectónica" loading="lazy">
+          <div class="film-play-btn"></div>
+        </div>
+        <div class="film-card-meta">
+          <span class="film-code" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;">FILM · 02</span>
+          <div class="film-title" contenteditable="true">Animación 02</div>
+        </div>
+      </a>
+
+      <a class="film-card" href="https://www.youtube.com/watch?v=OY3dPl2-nuI" target="_blank" rel="noopener">
+        <div class="film-card-thumb">
+          <img src="https://img.youtube.com/vi/OY3dPl2-nuI/hqdefault.jpg" alt="Animación arquitectónica" loading="lazy">
+          <div class="film-play-btn"></div>
+        </div>
+        <div class="film-card-meta">
+          <span class="film-code" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;">FILM · 03</span>
+          <div class="film-title" contenteditable="true">Animación 03</div>
+        </div>
+      </a>
+
+      <a class="film-card" href="https://www.youtube.com/watch?v=hM00MEyUWVU" target="_blank" rel="noopener">
+        <div class="film-card-thumb">
+          <img src="https://img.youtube.com/vi/hM00MEyUWVU/hqdefault.jpg" alt="Animación arquitectónica" loading="lazy">
+          <div class="film-play-btn"></div>
+        </div>
+        <div class="film-card-meta">
+          <span class="film-code" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;">FILM · 04</span>
+          <div class="film-title" contenteditable="true">Animación 04</div>
+        </div>
+      </a>
+
+      <a class="film-card" href="https://www.youtube.com/watch?v=N7Xmx5IMPcc" target="_blank" rel="noopener">
+        <div class="film-card-thumb">
+          <img src="https://img.youtube.com/vi/N7Xmx5IMPcc/hqdefault.jpg" alt="Animación arquitectónica" loading="lazy">
+          <div class="film-play-btn"></div>
+        </div>
+        <div class="film-card-meta">
+          <span class="film-code" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;">FILM · 05</span>
+          <div class="film-title" contenteditable="true">Animación 05</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="films-cta-bar">
+      <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-3);">
+        <span data-i18n="es">Todos los films en YouTube</span>
+        <span data-i18n="en">All films on YouTube</span>
+      </span>
+      <a href="https://www.youtube.com/@mambaarchviz/videos" target="_blank" class="btn">
+        @mambaarchviz
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BACKWALLS ===================== -->
+<section class="backwalls" id="backwalls">
+  <div class="bw-inner">
+    <!-- INTRO BLOCK: header+video+guía (izq) | metodología técnica (der) -->
+    <div class="bw-intro-block reveal">
+
+      <!-- Columna izquierda: cabecera + vídeo + guía descargable -->
+      <div class="bw-intro-left">
+
+        <div class="bw-head">
+          <span class="eyebrow">
+            <span data-i18n="es">Producto · Fondos virtuales para streaming</span>
+            <span data-i18n="en">Product · Virtual backgrounds for streaming</span>
+          </span>
+          <h2 style="margin-top:16px;">Backwalls</h2>
+          <p class="bw-intro-text" data-i18n="es">Fondos arquitectónicos de alta calidad para streamers y creadores de contenido. Espacios diseñados como sets: iluminación real, profundidad de campo y coherencia técnica. No son imágenes planas.</p>
+          <p class="bw-intro-text" data-i18n="en">High-quality architectural backgrounds for streamers and content creators. Spaces designed as sets: real lighting, depth of field and technical coherence. Not flat images.</p>
+        </div>
+
+        <div class="bw-videos-grid">
+          <a class="bw-video-wrap" data-i18n="es"
+             href="https://www.youtube.com/watch?v=Q6kSBpId92s" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/Q6kSBpId92s/hqdefault.jpg"
+                   alt="Backwalls — Presentación ES" loading="lazy">
+              <div class="bw-play"></div>
+            </div>
+            <div class="video-label">
+              Presentación del producto · Español
+              <span class="ext-arrow">↗</span>
+            </div>
+          </a>
+          <a class="bw-video-wrap" data-i18n="en"
+             href="https://www.youtube.com/watch?v=Z53j6ARQ5O4" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/Z53j6ARQ5O4/hqdefault.jpg"
+                   alt="Backwalls — Presentation EN" loading="lazy">
+              <div class="bw-play"></div>
+            </div>
+            <div class="video-label">
+              Product presentation · English
+              <span class="ext-arrow">↗</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Guía descargable — lead magnet -->
+        <div class="bw-guide">
+          <span class="eyebrow">
+            <span data-i18n="es">Recurso gratuito</span>
+            <span data-i18n="en">Free resource</span>
+          </span>
+          <div>
+            <h3 style="font-family:var(--font-display);" data-i18n="es">Guía de iluminación <em class="brand">y composición.</em></h3>
+            <h3 style="font-family:var(--font-display);" data-i18n="en">Lighting &amp; Composition <em class="brand">guide.</em></h3>
+            <p data-i18n="es" style="color:var(--fg-2);line-height:1.6;margin-top:10px;">Los principios técnicos para conseguir el mejor resultado: coordenadas de cámara, distancia focal, línea de horizonte y profundidad de campo. Gratis.</p>
+            <p data-i18n="en" style="color:var(--fg-2);line-height:1.6;margin-top:10px;">The technical principles for the best result from a virtual background: camera coordinates, focal length, horizon line and depth of field. Free.</p>
+          </div>
+          <a href="./BACKWALLS/GUIA%20ILUMINACI%C3%93N/GUIA%20DE%20ILUMINACI%C3%93N%20Y%20COMPOSICI%C3%93N%20-%20MAMBA%20ArchViz.pdf"
+             download class="btn" style="align-self:flex-start; white-space:nowrap;">
+            <span data-i18n="es">Descargar PDF</span>
+            <span data-i18n="en">Download PDF</span>
+          </a>
+        </div>
+
+      </div><!-- /.bw-intro-left -->
+
+      <!-- Columna derecha: metodología técnica -->
+      <div class="bw-intro-right">
+
+        <div class="bw-gallery-head">
+          <span class="eyebrow">
+            <span data-i18n="es">Metodología técnica</span>
+            <span data-i18n="en">Technical method</span>
+          </span>
+          <h3 data-i18n="es">La relación <em class="brand">objeto — cámara.</em></h3>
+          <h3 data-i18n="en">The object — <em class="brand">camera relation.</em></h3>
+        </div>
+
+        <div class="bw-schema">
+          <div class="bw-schema-img">
+            <img src="./BACKWALLS/BASE%20PLANTILLA.jpg" alt="Plantilla técnica · relación objeto-cámara" loading="lazy">
+            <div class="bw-schema-annotation ann-rule">
+              <span data-i18n="es">MANTENER RELACIÓN OBJETO — CÁMARA</span>
+              <span data-i18n="en">KEEP RELATION OBJECT — CAMERA</span>
+            </div>
+            <div class="bw-schema-annotation ann-obj">(x, y, z) <span data-i18n="es">objeto</span><span data-i18n="en">object</span></div>
+            <div class="bw-schema-annotation ann-cam">(x, y, z) <span data-i18n="es">cámara</span><span data-i18n="en">camera</span></div>
+          </div>
+          <div class="bw-schema-legend">
+            <div class="schema-legend-item">
+              <span class="legend-key">Camera coordinates</span>
+              <p class="legend-desc" data-i18n="es">Posición (x, y, z) de la cámara real del streamer respecto al fondo virtual. Debe coincidir con la posición de render.</p>
+              <p class="legend-desc" data-i18n="en">Real (x, y, z) camera position relative to the virtual background. Must match the render position.</p>
+            </div>
+            <div class="schema-legend-item">
+              <span class="legend-key">Focal length</span>
+              <p class="legend-desc" data-i18n="es">Distancia focal en mm. Controla la perspectiva y cuánto espacio del fondo se ve alrededor del streamer.</p>
+              <p class="legend-desc" data-i18n="en">Focal length in mm. Controls perspective and how much background is visible around the streamer.</p>
+            </div>
+            <div class="schema-legend-item">
+              <span class="legend-key">Horizon line</span>
+              <p class="legend-desc" data-i18n="es">
+                <span style="color:var(--coral);">Horizon 1</span> — horizonte del fondo.<br>
+                <span style="color:var(--gold);">Horizon 2</span> — altura de ojos del streamer. Alinearlas da credibilidad al set.
+              </p>
+              <p class="legend-desc" data-i18n="en">
+                <span style="color:var(--coral);">Horizon 1</span> — background's horizon line.<br>
+                <span style="color:var(--gold);">Horizon 2</span> — streamer's eye level. Aligning both makes the set believable.
+              </p>
+            </div>
+            <div class="schema-legend-item">
+              <span class="legend-key">Depth of field</span>
+              <p class="legend-desc" data-i18n="es">El desenfoque se renderiza en postproceso. Mayor apertura, resultado más cinematográfico.</p>
+              <p class="legend-desc" data-i18n="en">Background blur is rendered in post. Higher aperture values produce more cinematic results.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.bw-intro-right -->
+
+    </div><!-- /.bw-intro-block -->
+
+    <!-- Galería de proyectos -->
+    <div class="bw-gallery-section reveal">
+      <div class="bw-gallery-head">
+        <span class="eyebrow">
+          <span data-i18n="es">Proyectos realizados</span>
+          <span data-i18n="en">Client work</span>
+        </span>
+        <h3 data-i18n="es">Sets <em class="brand">a medida.</em></h3>
+        <h3 data-i18n="en">Custom <em class="brand">sets.</em></h3>
+      </div>
+
+      <div class="bw-gallery-grid">
+
+        <!-- Dr Disrespect -->
+        <div class="bw-project-card">
+          <div class="bw-img-wrap">
+            <img src="./BACKWALLS/Dr%20Disrespect/DrDis%20Rooftop-%20mamba%20backwall.jpg"
+                 alt="Dr Disrespect · Rooftop Backwall" loading="lazy">
+          </div>
+          <div class="bw-card-meta">
+            <div class="bw-card-client">Dr Disrespect</div>
+            <div class="bw-card-title">Rooftop Set</div>
+          </div>
+          <div class="bw-spec-row">
+            <div class="bw-spec-item">
+              <span class="bw-spec-label">Focal length</span>
+              <span class="bw-spec-value">24 mm</span>
+            </div>
+            <div class="bw-spec-item bw-horizon-bar">
+              <span class="bw-spec-label">Horizon</span>
+              <div class="bw-h-line h1"><span>H1</span></div>
+              <div class="bw-h-line h2"><span>H2</span></div>
+            </div>
+          </div>
+          <div class="bw-dl-row">
+            <div class="dl-label"><span data-i18n="es">Ejemplo descargable</span><span data-i18n="en">Download sample</span></div>
+            <div class="dl-actions">
+              <button class="btn-dl primary" onclick="openBwSample('./BACKWALLS/Dr%20Disrespect/EJEMPLO%20DESCARGABLE.jpg','Dr Disrespect · Rooftop Set')">
+                <span data-i18n="es">Ver muestra</span><span data-i18n="en">Preview</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chaos Moogle -->
+        <div class="bw-project-card">
+          <div class="bw-img-wrap">
+            <img src="./BACKWALLS/chaos%20moogle/1%20Background%20Concept%20for%20Chaosmoogle.jpg"
+                 alt="Chaosmoogle Backwall" loading="lazy"
+                 onerror="this.src='./BACKWALLS/chaos%20moogle/3%20Background%20Concept%20for%20Chaosmoogle.jpg'">
+          </div>
+          <div class="bw-card-meta">
+            <div class="bw-card-client">Chaos Moogle</div>
+            <div class="bw-card-title">Custom Interior</div>
+          </div>
+          <div class="bw-spec-row">
+            <div class="bw-spec-item">
+              <span class="bw-spec-label">Focal length</span>
+              <span class="bw-spec-value">24 mm</span>
+            </div>
+            <div class="bw-spec-item bw-horizon-bar">
+              <span class="bw-spec-label">Horizon</span>
+              <div class="bw-h-line h1"><span>H1</span></div>
+              <div class="bw-h-line h2"><span>H2</span></div>
+            </div>
+          </div>
+          <div class="bw-dl-row">
+            <div class="dl-label"><span data-i18n="es">Ejemplo descargable</span><span data-i18n="en">Download sample</span></div>
+            <div class="dl-actions">
+              <button class="btn-dl primary" onclick="openBwSample('./BACKWALLS/chaos%20moogle/EJEMPLO%20DESCARGABLE.jpg','Chaos Moogle · Custom Interior')">
+                <span data-i18n="es">Ver muestra</span><span data-i18n="en">Preview</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jesse Michaels -->
+        <div class="bw-project-card">
+          <div class="bw-img-wrap">
+            <img src="./BACKWALLS/Jesse%20Michaels/Jessie%27s.jpg"
+                 alt="Jesse Michaels Backwall" loading="lazy"
+                 onerror="this.src='./BACKWALLS/Jesse%20Michaels/hangar.jpg'">
+          </div>
+          <div class="bw-card-meta">
+            <div class="bw-card-client">Jesse Michaels</div>
+            <div class="bw-card-title">Custom Set</div>
+          </div>
+          <div class="bw-spec-row">
+            <div class="bw-spec-item">
+              <span class="bw-spec-label">Focal length</span>
+              <span class="bw-spec-value">24 mm</span>
+            </div>
+            <div class="bw-spec-item bw-horizon-bar">
+              <span class="bw-spec-label">Horizon</span>
+              <div class="bw-h-line h1"><span>H1</span></div>
+              <div class="bw-h-line h2"><span>H2</span></div>
+            </div>
+          </div>
+          <div class="bw-dl-row">
+            <div class="dl-label"><span data-i18n="es">Ejemplo descargable</span><span data-i18n="en">Download sample</span></div>
+            <div class="dl-actions">
+              <button class="btn-dl primary" onclick="openBwSample('./BACKWALLS/Jesse%20Michaels/EJEMPLO%20DESCARGABLE.jpg','Jesse Michaels · Custom Set')">
+                <span data-i18n="es">Ver muestra</span><span data-i18n="en">Preview</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PBD — 3 ángulos -->
+        <div class="bw-project-card">
+          <div class="bw-img-wrap">
+            <img src="./BACKWALLS/PBD/FROTNAL.jpg" alt="PBD · Frontal" loading="lazy" id="pbdMainImg">
+          </div>
+          <div class="bw-card-meta">
+            <div class="bw-card-client">PBD</div>
+            <div class="bw-card-title">Multi-angle Set</div>
+          </div>
+          <div class="bw-views-strip">
+            <div class="bw-view-thumb" onclick="document.getElementById('pbdMainImg').src='./BACKWALLS/PBD/FROTNAL.jpg'">
+              <img src="./BACKWALLS/PBD/FROTNAL.jpg" alt="Frontal" loading="lazy">
+            </div>
+            <div class="bw-view-thumb" onclick="document.getElementById('pbdMainImg').src='./BACKWALLS/PBD/LEFT%20SIDE.jpg'">
+              <img src="./BACKWALLS/PBD/LEFT%20SIDE.jpg" alt="Left side" loading="lazy">
+            </div>
+            <div class="bw-view-thumb" onclick="document.getElementById('pbdMainImg').src='./BACKWALLS/PBD/RIGHT%20SIDE.jpg'">
+              <img src="./BACKWALLS/PBD/RIGHT%20SIDE.jpg" alt="Right side" loading="lazy">
+            </div>
+            <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.16em;color:var(--fg-3);align-self:center;text-transform:uppercase;margin-left:4px;">3 <span data-i18n="es">ángulos</span><span data-i18n="en">angles</span></span>
+          </div>
+          <div class="bw-spec-row">
+            <div class="bw-spec-item">
+              <span class="bw-spec-label">Focal length</span>
+              <span class="bw-spec-value">24 mm</span>
+            </div>
+            <div class="bw-spec-item bw-horizon-bar">
+              <span class="bw-spec-label">Horizon</span>
+              <div class="bw-h-line h1"><span>H1</span></div>
+              <div class="bw-h-line h2"><span>H2</span></div>
+            </div>
+          </div>
+          <div class="bw-dl-row">
+            <div class="dl-label"><span data-i18n="es">Ejemplo descargable</span><span data-i18n="en">Download sample</span></div>
+            <div class="dl-actions">
+              <button class="btn-dl primary" onclick="openBwSample('./BACKWALLS/PBD/EJEMPLO%20DESCARGABLE.jpg','PBD · Multi-angle Set')">
+                <span data-i18n="es">Ver muestra</span><span data-i18n="en">Preview</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TheHappyAvocado -->
+        <div class="bw-project-card">
+          <div class="bw-img-wrap">
+            <img src="./BACKWALLS/TheHappyAvocado/backwalls-%20thehappyavocadoo.jpg"
+                 alt="TheHappyAvocado Backwall" loading="lazy">
+          </div>
+          <div class="bw-card-meta">
+            <div class="bw-card-client">TheHappyAvocado</div>
+            <div class="bw-card-title">Custom Set</div>
+          </div>
+          <div class="bw-spec-row">
+            <div class="bw-spec-item">
+              <span class="bw-spec-label">Focal length</span>
+              <span class="bw-spec-value">24 mm</span>
+            </div>
+            <div class="bw-spec-item bw-horizon-bar">
+              <span class="bw-spec-label">Horizon</span>
+              <div class="bw-h-line h1"><span>H1</span></div>
+              <div class="bw-h-line h2"><span>H2</span></div>
+            </div>
+          </div>
+          <div class="bw-dl-row">
+            <div class="dl-label"><span data-i18n="es">Ejemplo descargable</span><span data-i18n="en">Download sample</span></div>
+            <div class="dl-actions">
+              <button class="btn-dl primary" onclick="openBwSample('./BACKWALLS/TheHappyAvocado/EJEMPLO%20DESCARGABLE.jpg','TheHappyAvocado · Custom Set')">
+                <span data-i18n="es">Ver muestra</span><span data-i18n="en">Preview</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- XOCAS -->
+        <div class="bw-project-card">
+          <div class="bw-img-wrap">
+            <img src="./BACKWALLS/XOCAS/xocas%204k.jpg" alt="XOCAS Backwall" loading="lazy">
+          </div>
+          <div class="bw-card-meta">
+            <div class="bw-card-client">XOCAS</div>
+            <div class="bw-card-title">Studio Set 4K</div>
+          </div>
+          <div class="bw-spec-row">
+            <div class="bw-spec-item">
+              <span class="bw-spec-label">Focal length</span>
+              <span class="bw-spec-value">24 mm</span>
+            </div>
+            <div class="bw-spec-item bw-horizon-bar">
+              <span class="bw-spec-label">Horizon</span>
+              <div class="bw-h-line h1"><span>H1</span></div>
+              <div class="bw-h-line h2"><span>H2</span></div>
+            </div>
+          </div>
+          <div class="bw-dl-row">
+            <div class="dl-label"><span data-i18n="es">Ejemplo descargable</span><span data-i18n="en">Download sample</span></div>
+            <div class="dl-actions">
+              <button class="btn-dl primary" onclick="openBwSample('./BACKWALLS/XOCAS/EJEMPLO%20DESCARGABLE.jpg','XOCAS · Studio Set 4K')">
+                <span data-i18n="es">Ver muestra</span><span data-i18n="en">Preview</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.bw-gallery-grid -->
+
+    </div><!-- /.bw-gallery-section -->
+  </div>
+</section>
+
+<!-- ===================== ESTUDIO ===================== -->
+<section class="estudio reveal" id="estudio">
+  <div>
+    <span class="eyebrow">
+      <span data-i18n="es">Estudio</span>
+      <span data-i18n="en">Studio</span>
+    </span>
+    <h2 style="margin-top:16px;" data-i18n="es">Visualización <em class="brand">con criterio.</em></h2>
+    <h2 style="margin-top:16px;" data-i18n="en">Visualization <em class="brand">with judgement.</em></h2>
+  </div>
+  <div>
+    <p data-i18n="es" contenteditable="true">Mamba ArchViz es la práctica de Carlos Díaz, arquitecto especialista en visualización arquitectónica con sede en Barcelona. Más de nueve años produciendo renders, recorridos 360° y contenido inmersivo para estudios, promotores y clientes hospitality, siempre con un enfoque ingenieril y cuidado artesanal.</p>
+    <p data-i18n="en" contenteditable="true">Mamba ArchViz is the practice of Carlos Díaz, an architect specializing in architectural visualization based in Barcelona. Over nine years producing renders, 360° tours and immersive content for studios, developers and hospitality clients, with an engineering mindset and artisanal care.</p>
+    <p style="margin-top:20px;" data-i18n="es" contenteditable="true">Cada proyecto se aborda desde la geometría real del edificio: priorizar la arquitectura, no decorarla. El resultado son imágenes que sirven como herramienta de decisión, no solo como pieza comercial.</p>
+    <p style="margin-top:20px;" data-i18n="en" contenteditable="true">Each project starts from the building's real geometry: architecture first, not decoration. The result is imagery that serves as a decision-making tool, not just a marketing asset.</p>
+    <div class="about-meta">
+      Carlos Díaz · <span data-i18n="es">arquitecto</span><span data-i18n="en">architect</span><br>
+      Barcelona, ES<br>
+      mambaarchviz@gmail.com<br>
+      <span data-i18n="es">Activo desde 2018</span><span data-i18n="en">Active since 2018</span>
+    </div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <div class="services-grid">
+
+    <!-- Renderizado -->
+    <div class="service-item">
+      <img src="./design-system/assets/services/icon-renders.jpg" alt="Renderizado" class="service-icon">
+      <div class="service-name">
+        <span data-i18n="es">Renderizado</span>
+        <span data-i18n="en">Rendering</span>
+      </div>
+      <div class="service-desc">
+        <span data-i18n="es">Imágenes estáticas de alta resolución para arquitectura e interiorismo.</span>
+        <span data-i18n="en">High-resolution still images for architecture and interiors.</span>
+      </div>
+    </div>
+
+    <!-- Recorridos Virtuales -->
+    <div class="service-item">
+      <img src="./design-system/assets/services/icon-movie.jpg" alt="Recorridos Virtuales" class="service-icon">
+      <div class="service-name">
+        <span data-i18n="es">Recorridos Virtuales</span>
+        <span data-i18n="en">Virtual Walkthroughs</span>
+      </div>
+      <div class="service-desc">
+        <span data-i18n="es">Animaciones cinematográficas que narran el espacio en movimiento.</span>
+        <span data-i18n="en">Cinematic animations that narrate space in motion.</span>
+      </div>
+    </div>
+
+    <!-- Representaciones 2D -->
+    <div class="service-item">
+      <img src="./design-system/assets/services/icon-2d.jpg" alt="Representaciones 2D" class="service-icon">
+      <div class="service-name">
+        <span data-i18n="es">Representaciones 2D</span>
+        <span data-i18n="en">2D Representations</span>
+      </div>
+      <div class="service-desc">
+        <span data-i18n="es">Plantas, secciones y alzados renderizados con criterio gráfico.</span>
+        <span data-i18n="en">Rendered plans, sections and elevations with graphic precision.</span>
+      </div>
+    </div>
+
+    <!-- VR e Imágenes 360° -->
+    <div class="service-item">
+      <img src="./design-system/assets/services/icon-360.jpg" alt="VR e Imágenes 360°" class="service-icon">
+      <div class="service-name">
+        <span data-i18n="es">VR e Imágenes 360°</span>
+        <span data-i18n="en">VR &amp; 360° Images</span>
+      </div>
+      <div class="service-desc">
+        <span data-i18n="es">Fotografía 360° estática e interactiva para tours inmersivos.</span>
+        <span data-i18n="en">Static and interactive 360° photography for immersive tours.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== CONTACTO ===================== -->
+<section class="contacto" id="contacto">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <span class="eyebrow">
+        <span data-i18n="es">Contacto</span>
+        <span data-i18n="en">Contact</span>
+      </span>
+      <h2 style="margin-top:16px;" data-i18n="es">Hablemos <em class="brand">del proyecto.</em></h2>
+      <h2 style="margin-top:16px;" data-i18n="en">Let's talk <em class="brand">about the project.</em></h2>
+      <p data-i18n="es">Para presupuestos, consultas sobre visualización arquitectónica, Backwalls o colaboraciones.</p>
+      <p data-i18n="en">For quotes, architectural visualization inquiries, Backwalls or collaborations.</p>
+      <a href="mailto:mambaarchviz@gmail.com" class="contact-email-big">mambaarchviz@gmail.com</a>
+      <div class="contact-social">
+        <a href="https://www.instagram.com/mambaarchviz/" target="_blank">Instagram · @mambaarchviz</a>
+        <a href="https://www.youtube.com/@mambaarchviz/videos" target="_blank">YouTube · @mambaarchviz</a>
+      </div>
+    </div>
+    <div class="contact-form-placeholder reveal">
+      <div class="form-field-ph">
+        <span data-i18n="es">Nombre / empresa</span>
+        <span data-i18n="en">Name / company</span>
+      </div>
+      <div class="form-field-ph">Email</div>
+      <div class="form-field-ph">
+        <span data-i18n="es">Tipo de proyecto</span>
+        <span data-i18n="en">Project type</span>
+      </div>
+      <div class="form-field-ph textarea">
+        <span data-i18n="es">Mensaje</span>
+        <span data-i18n="en">Message</span>
+      </div>
+      <a href="mailto:mambaarchviz@gmail.com" class="btn" style="align-self:flex-start;">
+        <span data-i18n="es">Enviar mensaje</span>
+        <span data-i18n="en">Send message</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BW SAMPLE MODAL ===================== -->
+<div id="bwSampleModal" class="bw-sample-overlay">
+  <div class="bw-sample-panel">
+    <div class="bw-sample-header">
+      <div class="bw-sample-title" id="bwSampleTitle"></div>
+      <button class="bw-sample-close" id="bwSampleClose">✕</button>
+    </div>
+    <div class="bw-sample-img-wrap">
+      <img id="bwSampleImg" src="" alt="Ejemplo Backwalls">
+    </div>
+    <div class="bw-sample-actions">
+      <a id="bwSampleDl" href="" download="EJEMPLO DESCARGABLE.png" class="btn">
+        <span data-i18n="es">Descargar muestra</span>
+        <span data-i18n="en">Download sample</span>
+      </a>
+      <a href="#contacto" class="btn btn-outline" id="bwSampleContact">
+        <span data-i18n="es">¿Más resolución? Contactar</span>
+        <span data-i18n="en">Need higher res? Contact</span>
+      </a>
+      <span class="bw-sample-esc">ESC</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="brand-display" data-i18n="es">Arquitectura, <em>hecha visible.</em></div>
+      <div class="brand-display" data-i18n="en">Architecture, <em>made visible.</em></div>
+    </div>
+    <div>
+      <h4><span data-i18n="es">Trabajo</span><span data-i18n="en">Work</span></h4>
+      <ul>
+        <li><a href="#work"><span data-i18n="es">Renders</span><span data-i18n="en">Renders</span></a></li>
+        <li><a href="#tours360"><span data-i18n="es">Tours 360°</span><span data-i18n="en">360° Tours</span></a></li>
+        <li><a href="#films"><span data-i18n="es">Animaciones</span><span data-i18n="en">Films</span></a></li>
+        <li><a href="#archive-teaser"><span data-i18n="es">Archivo</span><span data-i18n="en">Archive</span></a></li>
+      </ul>
+    </div>
+    <div>
+      <h4><span data-i18n="es">Producto</span><span data-i18n="en">Product</span></h4>
+      <ul>
+        <li><a href="#backwalls">Backwalls</a></li>
+        <li><a href="https://www.youtube.com/watch?v=Q6kSBpId92s" target="_blank">
+          <span data-i18n="es">Ver demo (ES)</span>
+          <span data-i18n="en">Demo (ES)</span>
+        </a></li>
+        <li><a href="https://www.youtube.com/watch?v=Z53j6ARQ5O4" target="_blank">
+          <span data-i18n="es">Ver demo (EN)</span>
+          <span data-i18n="en">Demo (EN)</span>
+        </a></li>
+      </ul>
+    </div>
+    <div>
+      <h4><span data-i18n="es">Contacto</span><span data-i18n="en">Contact</span></h4>
+      <ul>
+        <li><a href="mailto:mambaarchviz@gmail.com">mambaarchviz@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/mambaarchviz/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@mambaarchviz/videos" target="_blank">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copy">© 2026 Mamba ArchViz · Carlos Díaz · Barcelona</p>
+</footer>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox">
+  <header>
+    <div class="info">
+      <span class="eyebrow"><span id="lbCode">006 / RES</span> · <span id="lbYear">2022</span></span>
+      <div class="title" id="lbTitle">Rosasur Park</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <button class="close" id="lbClose" title="Cerrar (ESC)">&#x2715;</button>
+      <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.16em;color:var(--fg-3);">ESC</span>
+    </div>
+  </header>
+  <div class="stage" id="lbStage">
+    <img id="lbImg" src="" alt="">
+  </div>
+  <div class="arrows">
+    <button id="lbPrev">&#8592; <span data-i18n="es">Anterior</span><span data-i18n="en">Previous</span></button>
+    <span class="index"><span id="lbIdx">1</span> / <span id="lbTotal">5</span></span>
+    <button id="lbNext"><span data-i18n="es">Siguiente</span><span data-i18n="en">Next</span> &#8594;</button>
+  </div>
+</div>
+
+<script>
+/* ===================== ESTADO + SWITCHES ===================== */
+const root = document.documentElement;
+const STORAGE_KEY = 'mamba-mockup-v2';
+
+function applySaved() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    Object.entries(saved).forEach(([axis, val]) => root.dataset[axis] = val);
+    syncButtons();
+  } catch (e) {}
+}
+function syncButtons() {
+  document.querySelectorAll('#controls .opts').forEach(opts => {
+    const axis = opts.dataset.axis;
+    const cur = root.dataset[axis];
+    opts.querySelectorAll('.opt').forEach(b => b.classList.toggle('on', b.dataset.value === cur));
+  });
+}
+function saveState() {
+  const state = {};
+  ['typography','palette','spacing','presentation','buttons','hover','scroll'].forEach(a => state[a] = root.dataset[a]);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+applySaved();
+
+document.querySelectorAll('#controls .opts').forEach(opts => {
+  opts.addEventListener('click', e => {
+    const btn = e.target.closest('.opt');
+    if (!btn) return;
+    opts.querySelectorAll('.opt').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    root.dataset[opts.dataset.axis] = btn.dataset.value;
+    saveState();
+  });
+});
+
+document.getElementById('ctrlToggle').addEventListener('click', () => {
+  document.getElementById('controls').classList.toggle('collapsed');
+});
+
+document.getElementById('btnReset').addEventListener('click', () => {
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+});
+
+document.getElementById('btnCopy').addEventListener('click', () => {
+  const state = {
+    typography: root.dataset.typography,
+    palette: root.dataset.palette,
+    spacing: root.dataset.spacing,
+    presentation: root.dataset.presentation,
+    buttons: root.dataset.buttons,
+    hover: root.dataset.hover,
+    scroll: root.dataset.scroll,
+  };
+  const txt = Object.entries(state).map(([k,v]) => `${k}: ${v}`).join(' · ');
+  navigator.clipboard.writeText(txt).then(() => {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1800);
+  });
+});
+
+/* ===================== LIGHTBOX ===================== */
+const projectVistas = {
+  '6-Rosasur Park': ['61.jpg','62.jpg','63.jpg','64.jpg','65.jpg','72.jpg','73.jpg','74.jpg','75.jpg','76.jpg','78.jpg','79.jpg','80.jpg','81.jpg','82.jpg','83.jpg','84.jpg'],
+  '1-Atalaya':      ['33.jpg','34.jpg','35.jpg','36.jpg','37.jpg'],
+  '2-B&S':          ['89.jpg','91.jpg','92.jpg','93.jpg','94.jpg','95.jpg','96.jpg','98.jpg','99.jpg'],
+  '8-casa ML':      ['38.JPG','39.JPG','41.JPG','42.JPG','43.JPG','44.JPG','45.JPG','47.JPG','48.JPG','49.jpg','50.jpg','51.jpg','52.jpg','53.jpg','54.jpg','55.jpg'],
+  '3-LHL House':    ['66 ENH.jpg','67.jpg','68.jpg','69.jpg','71 ENH.jpg'],
+  '5-MBA CAFE':     ['10.jpg','11.jpg','12.jpg','9ENH.jpg'],
+  '9-Oficinas i laboratorios Titan': ['16.jpg','17.jpg','18 ENH2.jpg','19 ENH2.jpg'],
+  '10-cabins':      ['102.jpg','103.jpg','104.jpg','32r.jpg','58.JPG'],
+  '7-casa AG':      ['85.jpg','86.jpg','87.jpg','88.jpg'],
+  '4-Loft&house Rehab': ['106.jpg','107.jpg','108.jpg','109.jpg','110.jpg'],
+  'Casa PC':        ['3.jpg','5.jpg','6 r.jpg','7.jpg','8r.jpg'],
+  'Can Costa':      ['22.jpg','23.jpg','24.jpg','25.jpg'],
+  'Casa 24':        ['13.jpg','14.jpg','15.jpg'],
+  "Hall and teacher's office": ['27 ENH.jpg','28 1 ENH.jpg','28ENH.jpg'],
+  'casa Els Monjos': ['105.jpg','111.jpg'],
+};
+let lbProject = null, lbIndex = 0;
+const lb  = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+
+function openLightbox(tile) {
+  lbProject = tile.dataset.project;
+  lbIndex = 0;
+  document.getElementById('lbCode').textContent  = tile.dataset.code;
+  document.getElementById('lbTitle').textContent = tile.dataset.title;
+  document.getElementById('lbYear').textContent  = tile.dataset.year;
+  const list = projectVistas[lbProject] || [];
+  document.getElementById('lbTotal').textContent = list.length || 1;
+  showVista();
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function showVista() {
+  const list = projectVistas[lbProject] || [];
+  if (!list.length) return;
+  const folder = lbProject.startsWith('Casa PC') || lbProject.startsWith('Can Costa') ||
+                 lbProject.startsWith('Casa 24') || lbProject.startsWith('Hall') ||
+                 lbProject.startsWith('casa Els') ? lbProject : lbProject;
+  lbImg.src = `./renders/${encodeURIComponent(lbProject)}/${encodeURIComponent(list[lbIndex])}`;
+  document.getElementById('lbIdx').textContent = (lbIndex + 1);
+}
+function closeLightbox() {
+  lb.classList.remove('open');
+  lbImg.classList.remove('zoomed');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.tile, .archive-card').forEach(t =>
+  t.addEventListener('click', () => openLightbox(t))
+);
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+// Click en el fondo del lightbox (fuera del contenido) cierra
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === document.getElementById('lightbox') ||
+      e.target === document.getElementById('lbStage')) closeLightbox();
+});
+lbImg.addEventListener('click', e => { e.stopPropagation(); lbImg.classList.toggle('zoomed'); });
+
+function resetZoom() { lbImg.classList.remove('zoomed'); }
+document.getElementById('lbPrev').addEventListener('click', () => {
+  const list = projectVistas[lbProject] || [];
+  lbIndex = (lbIndex - 1 + list.length) % list.length;
+  resetZoom(); showVista();
+});
+document.getElementById('lbNext').addEventListener('click', () => {
+  const list = projectVistas[lbProject] || [];
+  lbIndex = (lbIndex + 1) % list.length;
+  resetZoom(); showVista();
+});
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape')      closeLightbox();
+  if (e.key === 'ArrowRight')  document.getElementById('lbNext').click();
+  if (e.key === 'ArrowLeft')   document.getElementById('lbPrev').click();
+});
+
+/* ===================== PARALLAX currents ===================== */
+const l1 = document.getElementById('parallaxL1');
+const l2 = document.getElementById('parallaxL2');
+function onScrollParallax() {
+  if (root.dataset.scroll !== 'parallax') return;
+  const y = window.scrollY;
+  if (l1) l1.style.transform = `translateY(${y * -0.08}px)`;
+  if (l2) l2.style.transform = `translateY(${y * -0.18}px)`;
+}
+window.addEventListener('scroll', onScrollParallax, { passive: true });
+
+/* ===================== REVEAL (IntersectionObserver) ===================== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ===================== HOVER magnetic ===================== */
+function onMouseMoveTile(e) {
+  if (root.dataset.hover !== 'magnetic') return;
+  const tile = e.currentTarget;
+  const img  = tile.querySelector('img');
+  const rect = tile.getBoundingClientRect();
+  const x = ((e.clientX - rect.left)  / rect.width  - 0.5) * 12;
+  const y = ((e.clientY - rect.top)   / rect.height - 0.5) * 12;
+  img.style.transform = `translate(${x}px, ${y}px) scale(1.06)`;
+}
+function onMouseLeaveTile(e) {
+  const img = e.currentTarget.querySelector('img');
+  if (img) img.style.transform = '';
+}
+document.querySelectorAll('.tile').forEach(t => {
+  t.addEventListener('mousemove', onMouseMoveTile);
+  t.addEventListener('mouseleave', onMouseLeaveTile);
+});
+
+/* ===================== LANG SWITCHER ===================== */
+function setLang(lang) {
+  root.dataset.lang = lang;
+  document.querySelectorAll('#langSwitcher span[data-set-lang]').forEach(s => {
+    s.classList.toggle('on', s.dataset.setLang === lang);
+  });
+  // Actualizar atributo lang en html para accesibilidad
+  root.lang = lang;
+  try { localStorage.setItem('mamba-mockup-lang', lang); } catch(e) {}
+}
+document.querySelectorAll('#langSwitcher span[data-set-lang]').forEach(s => {
+  s.addEventListener('click', () => setLang(s.dataset.setLang));
+});
+try {
+  const savedLang = localStorage.getItem('mamba-mockup-lang');
+  if (savedLang) setLang(savedLang);
+} catch(e) {}
+
+/* ===================== BW SAMPLE MODAL ===================== */
+const bwModal    = document.getElementById('bwSampleModal');
+const bwModalImg = document.getElementById('bwSampleImg');
+const bwModalTtl = document.getElementById('bwSampleTitle');
+const bwModalDl  = document.getElementById('bwSampleDl');
+
+function openBwSample(src, title) {
+  bwModalImg.src      = src;
+  bwModalTtl.textContent = title;
+  bwModalDl.href      = src;
+  bwModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBwSample() {
+  bwModal.classList.remove('open');
+  bwModalImg.src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('bwSampleClose').addEventListener('click', closeBwSample);
+bwModal.addEventListener('click', e => { if (e.target === bwModal) closeBwSample(); });
+document.getElementById('bwSampleContact').addEventListener('click', closeBwSample);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && bwModal.classList.contains('open')) closeBwSample();
+});
+
+/* ===================== NAV SHRINK ON SCROLL ===================== */
+const topNav = document.querySelector('nav.top');
+window.addEventListener('scroll', () => {
+  topNav.classList.toggle('is-scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ===================== Carga inicial ===================== */
+window.addEventListener('load', onScrollParallax);
+</script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backwalls — by Mamba ArchViz</title>
+<meta name="description" content="Bespoke architectural backdrops for content creators, streamers and producers.">
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg-1); color: var(--fg-1); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 100; opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+  mix-blend-mode: overlay;
+}
+
+/* nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(to bottom, rgba(10,10,10,0.85), rgba(10,10,10,0.4) 70%, transparent);
+}
+.nav-back {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  color: var(--fg-2); border: none;
+}
+.nav-back::before { content: "←"; }
+.nav-back:hover { color: var(--coral); }
+.nav-brand { font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--fg-0); border: none; }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; background: var(--coral); color: #0a0a0a !important;
+  border-radius: var(--radius-1); border: none;
+  font-family: var(--font-ui); font-size: 11px; font-weight: 500;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  transition: all 180ms;
+}
+.nav-cta:hover { background: var(--coral-soft); }
+
+/* hero — bold split */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  position: relative;
+  padding-top: 80px;
+}
+.hero-text {
+  padding: 80px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
+}
+.hero-eyebrow {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  color: var(--coral);
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 32px;
+}
+.hero-eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--coral); }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(48px, 7vw, 112px); line-height: 0.96;
+  letter-spacing: -0.03em; color: var(--fg-0);
+}
+.hero h1 em { font-style: italic; color: var(--fg-1); display: block; }
+.hero h1 .accent { color: var(--coral); font-style: italic; }
+.hero-sub {
+  margin-top: 32px;
+  font-family: var(--font-ui); font-weight: 300;
+  font-size: 18px; line-height: 1.6; color: var(--fg-2);
+  max-width: 48ch;
+}
+.hero-cta { margin-top: 48px; display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-meta {
+  margin-top: 64px;
+  display: flex; gap: 32px; flex-wrap: wrap;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-wide); text-transform: uppercase;
+  color: var(--fg-3);
+}
+.hero-meta b { display: block; color: var(--fg-1); font-weight: 400; font-size: 13px; font-family: var(--font-ui); letter-spacing: 0; text-transform: none; margin-top: 4px; }
+
+.hero-image {
+  position: relative;
+  background-image: url("../../assets/renders/r-living.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.hero-image::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--bg-0) 0%, transparent 30%),
+              linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
+}
+.hero-image-tag {
+  position: absolute; bottom: 24px; right: 24px;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  color: var(--fg-1);
+  background: rgba(0,0,0,0.6); padding: 8px 12px;
+  border-radius: var(--radius-1); backdrop-filter: blur(8px);
+  z-index: 1;
+}
+.hero-camera-frame {
+  position: absolute; bottom: 80px; right: 80px;
+  width: 200px; aspect-ratio: 4/3;
+  border: 2px solid var(--coral);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-camera-frame::before {
+  content: "REC"; position: absolute;
+  top: -28px; left: 0;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-widest); color: var(--coral);
+  display: flex; align-items: center; gap: 6px;
+}
+.hero-camera-frame::after {
+  content: ""; position: absolute;
+  top: -22px; left: 36px;
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--coral);
+  animation: blink 1.4s ease-in-out infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px;
+  font-family: var(--font-ui); font-size: 12px; font-weight: 500;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  border-radius: var(--radius-1);
+  border: 1px solid transparent;
+  cursor: pointer; transition: all 180ms;
+  text-decoration: none;
+}
+.btn-coral { background: var(--coral); color: #0a0a0a; }
+.btn-coral:hover { background: var(--coral-soft); transform: translateY(-1px); color: #0a0a0a; }
+.btn-ghost { background: transparent; color: var(--fg-0); border-color: var(--line-2); }
+.btn-ghost:hover { border-color: var(--fg-0); background: rgba(255,255,255,0.05); color: var(--fg-0); }
+.btn-arrow::after { content: "→"; transition: transform 180ms; }
+.btn:hover.btn-arrow::after { transform: translateX(4px); }
+
+/* section */
+.section { padding: 140px 40px; max-width: 1400px; margin: 0 auto; }
+.section-eyebrow {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  color: var(--coral);
+  display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 24px;
+}
+.section-eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--coral); }
+.section-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(40px, 5vw, 72px); line-height: 1.02;
+  letter-spacing: -0.02em; color: var(--fg-0);
+  max-width: 18ch;
+}
+.section-title em { font-style: italic; color: var(--fg-2); }
+
+/* problem section — three cards */
+.why-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 64px;
+}
+.why-card {
+  padding: 40px 32px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-2);
+  background: var(--bg-2);
+  transition: border-color 180ms, background 180ms;
+}
+.why-card:hover { border-color: var(--coral); background: var(--bg-3); }
+.why-num {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tracking-wide); color: var(--coral);
+  margin-bottom: 24px;
+}
+.why-card h3 {
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 400; font-size: 28px; line-height: 1.1;
+  letter-spacing: -0.01em; color: var(--fg-0);
+  text-transform: none;
+  margin-bottom: 16px;
+}
+.why-card p {
+  font-family: var(--font-ui); font-weight: 300;
+  font-size: 14px; line-height: 1.65; color: var(--fg-2);
+}
+
+/* showcase — gallery of backwall examples */
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-top: 64px;
+}
+.shot {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2);
+  background: var(--bg-2);
+  cursor: pointer;
+}
+.shot.s-wide { grid-column: span 4; aspect-ratio: 16/9; }
+.shot.s-square { grid-column: span 2; aspect-ratio: 1; }
+.shot.s-tall { grid-column: span 2; aspect-ratio: 3/4; }
+.shot.s-third { grid-column: span 2; aspect-ratio: 4/5; }
+.shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 800ms cubic-bezier(0.16,1,0.3,1); filter: grayscale(0.1); }
+.shot:hover img { transform: scale(1.04); filter: grayscale(0); }
+.shot-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent 50%);
+  opacity: 0; transition: opacity 400ms;
+}
+.shot:hover .shot-overlay { opacity: 1; }
+.shot-style {
+  align-self: flex-start;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  background: rgba(255,107,107,0.9); color: #0a0a0a;
+  padding: 4px 8px; border-radius: 2px;
+}
+.shot-title {
+  align-self: flex-start;
+  font-family: var(--font-display); font-style: italic;
+  font-size: 22px; color: var(--fg-0); line-height: 1.1;
+}
+
+/* process */
+.process {
+  background: var(--bg-0);
+  padding: 140px 40px;
+  border-top: 1px solid var(--line-1);
+  border-bottom: 1px solid var(--line-1);
+}
+.process-inner { max-width: 1400px; margin: 0 auto; }
+.steps {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+.steps::before {
+  content: ""; position: absolute;
+  top: 24px; left: 24px; right: 24px;
+  height: 1px; background: var(--line-2);
+  z-index: 0;
+}
+.step {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.step-num {
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  background: var(--bg-0);
+  border: 1px solid var(--coral);
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 13px;
+  color: var(--coral); font-weight: 400;
+}
+.step h4 {
+  font-family: var(--font-ui); font-weight: 500;
+  font-size: 14px; letter-spacing: var(--tracking-wide);
+  text-transform: uppercase; color: var(--fg-0);
+}
+.step p {
+  font-family: var(--font-ui); font-weight: 300;
+  font-size: 14px; line-height: 1.6; color: var(--fg-2);
+}
+.step-meta {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-wide); color: var(--fg-3);
+  text-transform: uppercase;
+}
+
+/* pricing — three tiers */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 64px;
+}
+.tier {
+  padding: 40px 32px;
+  border: 1px solid var(--line-1);
+  border-radius: var(--radius-2);
+  background: var(--bg-2);
+  display: flex; flex-direction: column;
+}
+.tier.featured { border-color: var(--coral); background: linear-gradient(180deg, rgba(255,107,107,0.06), var(--bg-2)); }
+.tier-tag {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  color: var(--fg-3);
+}
+.tier.featured .tier-tag { color: var(--coral); }
+.tier h3 {
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 400; font-size: 36px; color: var(--fg-0);
+  margin: 12px 0 8px;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+.tier-price {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 56px; line-height: 1; letter-spacing: -0.02em;
+  color: var(--fg-0); margin-top: 24px;
+}
+.tier-price small {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--fg-3); letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  display: block; margin-top: 8px;
+}
+.tier ul {
+  list-style: none; margin: 32px 0;
+  display: flex; flex-direction: column; gap: 12px;
+  flex: 1;
+}
+.tier li {
+  font-family: var(--font-ui); font-weight: 300;
+  font-size: 14px; line-height: 1.5; color: var(--fg-2);
+  padding-left: 20px; position: relative;
+}
+.tier li::before {
+  content: "+"; position: absolute; left: 0; top: 0;
+  color: var(--coral); font-family: var(--font-mono);
+}
+.tier .btn { width: 100%; justify-content: center; }
+
+/* testimonial */
+.testimonial {
+  padding: 140px 40px;
+  text-align: center; max-width: 900px; margin: 0 auto;
+}
+.testimonial blockquote {
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 400; font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.2; letter-spacing: -0.01em;
+  color: var(--fg-0);
+}
+.testimonial cite {
+  display: block; margin-top: 32px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: var(--tracking-widest); text-transform: uppercase;
+  color: var(--fg-3); font-style: normal;
+}
+.testimonial cite b { color: var(--coral); font-weight: 400; }
+
+/* CTA band */
+.cta-band {
+  position: relative;
+  margin: 0 40px 96px;
+  padding: 96px 64px;
+  border-radius: var(--radius-2);
+  overflow: hidden;
+  background: var(--bg-0);
+  text-align: center;
+}
+.cta-band::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: url("../../assets/renders/r-night.jpg");
+  background-size: cover; background-position: center;
+  filter: grayscale(0.5) brightness(0.4) contrast(1.1);
+}
+.cta-band::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255,107,107,0.18) 0%, transparent 65%);
+}
+.cta-band > * { position: relative; z-index: 1; }
+.cta-band h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(40px, 5vw, 72px); line-height: 1.02;
+  letter-spacing: -0.02em; color: var(--fg-0);
+}
+.cta-band h2 em { font-style: italic; color: var(--fg-2); }
+.cta-band p {
+  margin-top: 20px;
+  font-family: var(--font-ui); font-weight: 300;
+  font-size: 16px; line-height: 1.6; color: var(--fg-1);
+  max-width: 52ch; margin-left: auto; margin-right: auto;
+}
+.cta-band .btn-row { margin-top: 32px; display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* footer */
+.footer {
+  background: var(--bg-0);
+  padding: 48px 40px 32px;
+  border-top: 1px solid var(--line-1);
+  text-align: center;
+}
+.footer .brand { font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--fg-0); }
+.footer p { margin-top: 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--fg-3); }
+.footer a { color: var(--coral); border: none; }
+
+/* reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1); }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+/* responsive */
+@media (max-width: 900px) {
+  .nav { padding: 14px 20px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 70px; }
+  .hero-text { padding: 64px 24px; }
+  .hero-image { height: 50vh; }
+  .hero-camera-frame { display: none; }
+  .section { padding: 80px 20px; }
+  .why-grid, .pricing-grid, .steps { grid-template-columns: 1fr; }
+  .steps::before { display: none; }
+  .showcase { grid-template-columns: repeat(2, 1fr); }
+  .shot.s-wide, .shot.s-square, .shot.s-tall, .shot.s-third { grid-column: span 2; aspect-ratio: 4/3; }
+  .cta-band { margin: 0 16px 64px; padding: 64px 24px; }
+}
+</style>
+</head>
+<body data-screen-label="Backwalls Landing">
+
+<nav class="nav">
+  <a href="../../index.html" class="nav-back">Mamba ArchViz</a>
+  <span class="nav-brand">Backwalls.</span>
+  <a href="#contact" class="nav-cta">Cotizar →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" data-screen-label="01 Hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow">New · For Creators</span>
+    <h1>
+      Tu fondo,<br>
+      <em>hecho a medida.</em><br>
+      <span class="accent">A escala arquitectónica.</span>
+    </h1>
+    <p class="hero-sub">
+      Backwalls son fondos arquitectónicos personalizados para creadores de
+      contenido, streamers y producciones audiovisuales. Diseñados como
+      espacios reales, renderizados en alta resolución, listos para tu cámara.
+    </p>
+    <div class="hero-cta">
+      <a href="#tiers" class="btn btn-coral btn-arrow">Ver paquetes</a>
+      <a href="#showcase" class="btn btn-ghost">Ver ejemplos</a>
+    </div>
+    <div class="hero-meta">
+      <span>Resolución<b>Hasta 8K</b></span>
+      <span>Entrega<b>2 — 3 semanas</b></span>
+      <span>Iteraciones<b>Incluidas</b></span>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-camera-frame"></div>
+    <div class="hero-image-tag">Backwall · Modern Living</div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" data-screen-label="02 Why">
+  <span class="section-eyebrow">Why Backwalls</span>
+  <h2 class="section-title">Tu set, <em>antes era genérico.</em></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <h3>Diseño arquitectónico</h3>
+      <p>Cada backwall es un espacio coherente — no un collage de assets. Pensado por un arquitecto, con escala, luz y materiales que responden a una idea clara.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <h3>A medida</h3>
+      <p>Adaptado a tu marca, tu colorimetría y tu setup técnico. Resoluciones para 1080p, 4K, ultrawide o configuraciones multi-monitor.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <h3>Listo para producción</h3>
+      <p>PNG en alta resolución + variantes (día/noche, cámara fija o sutiles loops animados). Sin marcas de agua, derechos de uso comercial incluidos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="section" id="showcase" data-screen-label="03 Showcase">
+  <span class="section-eyebrow">Showcase · Estilos</span>
+  <h2 class="section-title">Estilos que ya hemos <em>llevado a cámara.</em></h2>
+  <div class="showcase">
+    <div class="shot s-wide">
+      <img src="../../assets/renders/r-living.jpg" alt="">
+      <div class="shot-overlay">
+        <span class="shot-style">Modern Living</span>
+        <span class="shot-title">Studio Loft · Brooklyn</span>
+      </div>
+    </div>
+    <div class="shot s-square">
+      <img src="../../assets/renders/r-attic.jpg" alt="">
+      <div class="shot-overlay">
+        <span class="shot-style">Attic Suite</span>
+        <span class="shot-title">Warm Wood</span>
+      </div>
+    </div>
+    <div class="shot s-square">
+      <img src="../../assets/renders/r-bedroom.jpg" alt="">
+      <div class="shot-overlay">
+        <span class="shot-style">Quiet Room</span>
+        <span class="shot-title">Reader's Den</span>
+      </div>
+    </div>
+    <div class="shot s-third">
+      <img src="../../assets/renders/r-spa.jpg" alt="">
+      <div class="shot-overlay">
+        <span class="shot-style">Wellness</span>
+        <span class="shot-title">Lantern Spa</span>
+      </div>
+    </div>
+    <div class="shot s-third">
+      <img src="../../assets/renders/r-stairs.jpg" alt="">
+      <div class="shot-overlay">
+        <span class="shot-style">Vertical</span>
+        <span class="shot-title">Stairwell</span>
+      </div>
+    </div>
+    <div class="shot s-third">
+      <img src="../../assets/renders/r-cabin-snow.jpg" alt="">
+      <div class="shot-overlay">
+        <span class="shot-style">Winter</span>
+        <span class="shot-title">Mountain Cabin</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" data-screen-label="04 Process">
+  <div class="process-inner">
+    <span class="section-eyebrow">Process · 2 — 3 weeks</span>
+    <h2 class="section-title">De brief a render <em>en cuatro pasos.</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <span class="step-meta">Día 1 — 3</span>
+        <h4>Brief &amp; Moodboard</h4>
+        <p>Llamada inicial. Definimos estilo, materiales, paleta y especificaciones técnicas. Te enviamos un moodboard.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <span class="step-meta">Día 4 — 7</span>
+        <h4>Diseño espacial</h4>
+        <p>Modelado 3D del espacio completo. Recibes vistas técnicas para validar arquitectura, escala y composición.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <span class="step-meta">Día 8 — 14</span>
+        <h4>Render &amp; Iteración</h4>
+        <p>Renderizado, iluminación y materiales. Una ronda de ajustes incluida (paleta, luz, props).</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <span class="step-meta">Día 15 — 21</span>
+        <h4>Entrega</h4>
+        <p>PNG en máxima resolución, variantes día/noche, archivos editables. Listo para tu cámara.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="tiers" data-screen-label="05 Pricing">
+  <span class="section-eyebrow">Packages · A partir de</span>
+  <h2 class="section-title">Paquetes para distintos <em>setups.</em></h2>
+  <div class="pricing-grid">
+    <div class="tier">
+      <span class="tier-tag">Starter</span>
+      <h3>Single Shot</h3>
+      <p style="font-family: var(--font-ui); font-weight: 300; font-size: 14px; color: var(--fg-3); line-height: 1.55;">Un fondo arquitectónico fijo, una variante de luz.</p>
+      <div class="tier-price">€890<small>desde · IVA no incl.</small></div>
+      <ul>
+        <li>1 backwall · 4K (3840×2160)</li>
+        <li>1 variante de iluminación</li>
+        <li>1 ronda de ajustes</li>
+        <li>Entrega en 2 semanas</li>
+        <li>Uso comercial</li>
+      </ul>
+      <a href="#contact" class="btn btn-ghost btn-arrow">Empezar</a>
+    </div>
+    <div class="tier featured">
+      <span class="tier-tag">★ Más popular</span>
+      <h3>Day &amp; Night</h3>
+      <p style="font-family: var(--font-ui); font-weight: 300; font-size: 14px; color: var(--fg-3); line-height: 1.55;">El espacio en dos atmósferas — directos largos cubiertos.</p>
+      <div class="tier-price">€1.490<small>desde · IVA no incl.</small></div>
+      <ul>
+        <li>1 backwall · 8K (7680×4320)</li>
+        <li>2 variantes (día / noche)</li>
+        <li>2 rondas de ajustes</li>
+        <li>Entrega en 3 semanas</li>
+        <li>Uso comercial · derechos extendidos</li>
+      </ul>
+      <a href="#contact" class="btn btn-coral btn-arrow">Empezar</a>
+    </div>
+    <div class="tier">
+      <span class="tier-tag">Studio</span>
+      <h3>Cinematic Loop</h3>
+      <p style="font-family: var(--font-ui); font-weight: 300; font-size: 14px; color: var(--fg-3); line-height: 1.55;">Movimiento sutil — ventanas, luz, atmósfera animada.</p>
+      <div class="tier-price">€2.890<small>desde · IVA no incl.</small></div>
+      <ul>
+        <li>1 backwall · 4K · 30s loop</li>
+        <li>3 variantes (día/atardecer/noche)</li>
+        <li>Movimiento sutil animado</li>
+        <li>3 rondas · entrega 4 semanas</li>
+        <li>Uso comercial · sin restricciones</li>
+      </ul>
+      <a href="#contact" class="btn btn-ghost btn-arrow">Empezar</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial" data-screen-label="06 Testimonial">
+  <span class="section-eyebrow" style="justify-content:center; display:flex;">Testimonial</span>
+  <blockquote>
+    "Pasé de un greenscreen genérico a un set que parece <em>mío</em>.
+    Los chats lo notaron en la primera transmisión."
+  </blockquote>
+  <cite><b>— Lara M.</b> · Streamer · 320K followers</cite>
+</section>
+
+<!-- CTA -->
+<section id="contact" data-screen-label="07 Contact">
+  <div class="cta-band">
+    <span class="section-eyebrow" style="justify-content:center; display:inline-flex;">Get started</span>
+    <h2>¿Tu fondo, próximo proyecto? <em>Empezamos hoy.</em></h2>
+    <p>Cuéntanos sobre tu marca, tu setup y la atmósfera que buscas. Te enviamos un brief inicial en 24h.</p>
+    <div class="btn-row">
+      <a href="mailto:mambaarchviz@gmail.com?subject=Backwalls" class="btn btn-coral btn-arrow">Solicitar brief</a>
+      <a href="../../index.html" class="btn btn-ghost">Ver Mamba ArchViz</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="brand">Backwalls.</div>
+  <p>by Mamba ArchViz · <a href="mailto:mambaarchviz@gmail.com">mambaarchviz@gmail.com</a> · © 2026</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.section, .why-card, .shot, .step, .tier, .cta-band, .testimonial').forEach(el => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
