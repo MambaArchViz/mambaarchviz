@@ -1100,12 +1100,21 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
 .nav-drawer-lang span.on { background: var(--gold); color: #0d0d0d; font-weight: 700; }
 
 @media (max-width: 768px) {
+  /* Nav */
   .nav-burger { display: flex; }
   nav.top .links { display: none; }
   nav.top .lang-pill { display: none; }
   nav.top .brand-mark { letter-spacing: 0.18em; font-size: 13px; }
+  /* Backwalls intro 2-col → 1-col */
   .bw-intro-block { grid-template-columns: 1fr !important; gap: 40px; }
   .bw-intro-right .bw-schema-legend { grid-template-columns: 1fr 1fr; }
+  /* Backwalls gallery: force 1 col, remove 440px minimum */
+  .bw-gallery-grid { grid-template-columns: 1fr !important; }
+  /* Card dl-row: stack label + button vertically on very narrow */
+  .bw-dl-row { flex-wrap: wrap; gap: 8px; }
+  /* Prevent any element from causing horizontal scroll */
+  body { overflow-x: hidden; }
+  .bw-inner { overflow-x: hidden; }
 }
 </style>
 </head>
