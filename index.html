@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es"
       data-lang="es"
       data-typography="A"
@@ -11,14 +11,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MambaArchViz · Mockup de opciones</title>
+<title>MambaArchViz — Estudio de visualización arquitectónica</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500&display=swap">
 <style>
 /* =========================================================
-   MAMBA ARCHVIZ — MOCKUP DE OPCIONES v2
-   Combo elegido: typography:A · palette:dark · spacing:compact
+   MAMBA ARCHVIZ — Web definitiva
+   typography:A · palette:dark · spacing:compact
    presentation:asym · buttons:gold · hover:split · scroll:parallax
    ========================================================= */
 
@@ -168,10 +168,16 @@ nav.top {
 }
 nav.top.is-scrolled { padding: 12px var(--pad-page); }
 nav.top .brand-mark {
-  font-family: var(--font-body); font-weight: 500; font-size: 14px;
-  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-0);
+  display: inline-flex; align-items: center; line-height: 0;
   text-decoration: none;
 }
+nav.top .brand-mark img {
+  height: 22px; width: auto; display: block;
+  filter: brightness(0) invert(1); opacity: 0.95;
+  transition: opacity var(--dur-fast), height var(--dur-mid) var(--ease-out);
+}
+nav.top .brand-mark:hover img { opacity: 1; }
+nav.top.is-scrolled .brand-mark img { height: 18px; }
 nav.top .links { display:flex; gap: 24px; }
 nav.top .links a {
   color: var(--fg-2); text-decoration: none; font-size: 11px;
@@ -223,12 +229,16 @@ section.hero .hero-bg {
   position: absolute; inset: 0; z-index: 0;
   background-image: url('./renders/6-Rosasur%20Park/61.jpg');
   background-size: cover; background-position: center;
-  filter: grayscale(0.4) brightness(0.55);
+  filter: grayscale(0.45) brightness(0.5) contrast(1.05);
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 55%, black 25%, transparent 80%);
+          mask-image: radial-gradient(ellipse 70% 65% at 50% 55%, black 25%, transparent 80%);
 }
 section.hero .hero-mask {
   position: absolute; inset:0; z-index: 1;
-  background: radial-gradient(ellipse at center, transparent 0%, var(--bg-1) 90%),
-              linear-gradient(to bottom, transparent 0%, var(--bg-1) 100%);
+  background:
+    radial-gradient(ellipse 50% 45% at 50% 55%, rgba(212,175,55,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at center, transparent 0%, var(--bg-1) 92%),
+    linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 30%, var(--bg-1) 100%);
 }
 section.hero .hero-content { position: relative; z-index: 2; max-width: var(--max-content); margin: 0 auto; width: 100%; }
 section.hero .eyebrow { margin-bottom: 24px; }
@@ -425,10 +435,16 @@ section.interlude .layer {
   will-change: transform;
 }
 section.interlude .layer.l1 {
-  background-image: url('./web-reference/backgrounds%20currents/imatge%206.jpg');
-  filter: grayscale(1) brightness(0.28) contrast(0.85); z-index: 0;
+  background-image: url('./design-system/assets/backgrounds/bg-concrete.jpg');
+  filter: grayscale(1) brightness(0.32) contrast(1.12); z-index: 0;
 }
-/* L2 eliminado: solo 1 capa para evitar doble fondo confuso */
+section.interlude .layer.l2 {
+  position: absolute; inset: -25%;
+  background-image: url('./design-system/assets/backgrounds/bg-pattern-dark.jpg');
+  background-size: 520px auto; background-repeat: repeat;
+  opacity: 0.07; mix-blend-mode: screen; z-index: 1;
+  will-change: transform;
+}
 /* Vignette central + bordes — garantiza que el texto se lea */
 section.interlude .vignette {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;
@@ -596,6 +612,97 @@ section.films .films-inner { max-width: var(--max-content); margin: 0 auto; }
   padding-top: calc(var(--gap-section) * 0.5);
   border-top: 1px solid var(--line-1);
 }
+
+/* ---------- 13.5 BACKWALLS · TEASER ---------- */
+section.bw-teaser {
+  position: relative; overflow: hidden;
+  min-height: 56vh;
+  display: grid; place-items: center;
+  padding: clamp(80px, 10vh, 140px) var(--pad-page);
+  background: var(--bg-0);
+  border-top: 1px solid var(--line-1);
+}
+section.bw-teaser .bw-teaser-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-image: url('./BACKWALLS/XOCAS/xocas%204k.jpg');
+  background-size: cover; background-position: center;
+  filter: grayscale(0.55) brightness(0.42) contrast(1.12);
+}
+section.bw-teaser .bw-teaser-glow {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(255,107,107,0.18) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, transparent 35%, transparent 65%, rgba(10,10,10,0.85) 100%);
+}
+section.bw-teaser .bw-teaser-inner {
+  position: relative; z-index: 2;
+  text-align: center; max-width: 760px;
+}
+section.bw-teaser .bw-teaser-eyebrow { color: var(--coral, #ff6b6b); }
+section.bw-teaser .bw-teaser-eyebrow::before { background: var(--coral, #ff6b6b); }
+section.bw-teaser .bw-teaser-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(48px, 6.4vw, 96px);
+  line-height: 1.0; letter-spacing: -0.025em;
+  color: var(--fg-0); margin-top: 32px;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+  text-wrap: balance;
+}
+section.bw-teaser .bw-teaser-title em.brand {
+  font-style: italic; color: var(--fg-1); font-family: var(--font-display);
+}
+@media (max-width: 900px) {
+  section.bw-teaser { min-height: 42vh; }
+}
+
+/* ---------- TIPOGRAFÍA · refinamiento titulares grandes ---------- */
+section.estudio h2,
+section.contacto .contact-left h2,
+section.hero h1 {
+  letter-spacing: -0.022em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+section.work h2,
+section.tours h2,
+section.films h2,
+section.backwalls h2 {
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+h1 em.brand, h2 em.brand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--fg-1);
+  letter-spacing: -0.02em;
+}
+
+/* ---------- HOVER STATES · refinamiento ---------- */
+section.work .work-card { transition: transform var(--dur-mid) var(--ease-out); }
+section.work .work-card img {
+  transition: transform 800ms var(--ease-arch), filter 600ms var(--ease-out);
+}
+section.work .work-card:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05) contrast(1.05);
+}
+.service-tile {
+  position: relative; transition: transform var(--dur-mid) var(--ease-out);
+}
+.service-tile::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(255,107,107,0.0) 100%);
+  pointer-events: none; transition: background 400ms var(--ease-out);
+}
+.service-tile:hover { transform: translateY(-3px); }
+.service-tile:hover::after {
+  background: linear-gradient(180deg, transparent 40%, rgba(255,107,107,0.18) 100%);
+}
+.btn, button.btn, a.btn { transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+.btn:hover, button.btn:hover, a.btn:hover { transform: translateY(-1px); }
+.btn:active, button.btn:active, a.btn:active { transform: translateY(0); }
 
 /* ---------- 14. BACKWALLS ---------- */
 section.backwalls {
@@ -1111,87 +1218,11 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
 </head>
 <body>
 
-<!-- ===================== PANEL DE CONTROL ===================== -->
-<aside id="controls">
-  <header>
-    <span class="title">Mockup · Opciones</span>
-    <span class="toggle" id="ctrlToggle">— colapsar</span>
-  </header>
-  <div class="body">
-
-    <div class="group">
-      <label>Tipografía</label>
-      <div class="opts" data-axis="typography">
-        <button class="opt on" data-value="A" title="Instrument Serif × Jost">A · Serif</button>
-        <button class="opt"    data-value="B" title="Newsreader × Inter">B · News</button>
-        <button class="opt"    data-value="C" title="Inter Tight small-type">C · Small</button>
-      </div>
-    </div>
-
-    <div class="group">
-      <label>Paleta</label>
-      <div class="opts" data-axis="palette">
-        <button class="opt on" data-value="dark"  title="Dark canónico, gold accent">Dark</button>
-        <button class="opt"    data-value="light" title="B&W warm">Light B&amp;W</button>
-      </div>
-    </div>
-
-    <div class="group">
-      <label>Espaciado</label>
-      <div class="opts" data-axis="spacing">
-        <button class="opt on" data-value="compact"  title="Industrial, denso">Compact</button>
-        <button class="opt"    data-value="medium"   title="Editorial">Medium</button>
-        <button class="opt"    data-value="generous" title="Lookbook">Generous</button>
-      </div>
-    </div>
-
-    <div class="group">
-      <label>Galería</label>
-      <div class="opts" data-axis="presentation">
-        <button class="opt on" data-value="asym"       title="Grid 12-col asimétrico">Asym</button>
-        <button class="opt"    data-value="row"        title="Fila 3-up regular">Row</button>
-        <button class="opt"    data-value="horizontal" title="Scroll horizontal">Horiz.</button>
-      </div>
-    </div>
-
-    <div class="group">
-      <label>Botones</label>
-      <div class="opts" data-axis="buttons">
-        <button class="opt on" data-value="gold"  title="Filled premium">Gold</button>
-        <button class="opt"    data-value="bw"    title="Ghost minimal">B&amp;W</button>
-        <button class="opt"    data-value="coral" title="Underline editorial">Coral</button>
-      </div>
-    </div>
-
-    <div class="group">
-      <label>Hover imagen</label>
-      <div class="opts" data-axis="hover">
-        <button class="opt"    data-value="scale"    title="Zoom + saturate">Scale</button>
-        <button class="opt on" data-value="split"    title="Cortina reveladora">Split</button>
-        <button class="opt"    data-value="magnetic" title="Sigue al cursor">Magnet</button>
-      </div>
-    </div>
-
-    <div class="group">
-      <label>Scroll FX</label>
-      <div class="opts" data-axis="scroll">
-        <button class="opt on" data-value="parallax"    title="Backgrounds currents">Parallax</button>
-        <button class="opt"    data-value="fade"        title="Fade reveal">Fade</button>
-        <button class="opt"    data-value="transitions" title="Cortina de sección">Trans.</button>
-      </div>
-    </div>
-
-  </div>
-  <div class="footer">
-    <button id="btnCopy">Copiar combo</button>
-    <button id="btnReset">Reset</button>
-  </div>
-  <div class="toast" id="toast">copiado al portapapeles</div>
-</aside>
-
 <!-- ===================== NAV ===================== -->
 <nav class="top">
-  <a href="#" class="brand-mark">M · A · M · B · A</a>
+  <a href="#" class="brand-mark" aria-label="Mamba ArchViz">
+    <img src="./design-system/assets/logos/mamba-wordmark-only.png" alt="Mamba ArchViz">
+  </a>
   <div class="links">
     <a href="#work"><span data-i18n="es">Trabajo</span><span data-i18n="en">Work</span></a>
     <a href="#tours360"><span data-i18n="es">Tours 360°</span><span data-i18n="en">360° Tours</span></a>
@@ -1625,6 +1656,22 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
         @mambaarchviz
       </a>
     </div>
+  </div>
+</section>
+
+<!-- ===================== BACKWALLS · TEASER ===================== -->
+<section class="bw-teaser" aria-hidden="false">
+  <div class="bw-teaser-bg"></div>
+  <div class="bw-teaser-glow"></div>
+  <div class="bw-teaser-inner reveal">
+    <span class="eyebrow bw-teaser-eyebrow">
+      <span data-i18n="es">Producto · Para creadores</span>
+      <span data-i18n="en">Product · For creators</span>
+    </span>
+    <h2 class="bw-teaser-title">
+      <span data-i18n="es">Backwalls. <em class="brand">Tu fondo, hecho a medida.</em></span>
+      <span data-i18n="en">Backwalls. <em class="brand">Your backdrop, on demand.</em></span>
+    </h2>
   </div>
 </section>
 
