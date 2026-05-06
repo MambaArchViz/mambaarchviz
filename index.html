@@ -1055,6 +1055,58 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
   .bw-videos-grid { grid-template-columns: 1fr; }
   .films-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- MOBILE NAV ---------- */
+.nav-burger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 36px; height: 36px; background: none; border: none;
+  cursor: pointer; padding: 4px; flex-shrink: 0;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--fg-1); transition: all 0.25s var(--ease-out);
+}
+.nav-burger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { opacity: 0; }
+.nav-burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.nav-mobile-drawer {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10,10,10,0.97); backdrop-filter: blur(20px);
+  z-index: 49; flex-direction: column; align-items: flex-start;
+  justify-content: center; padding: 80px 32px 48px;
+  gap: 4px;
+}
+.nav-mobile-drawer.is-open { display: flex; }
+.nav-drawer-link {
+  font-family: var(--font-body); font-size: clamp(22px, 6vw, 32px);
+  font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--fg-2); text-decoration: none; padding: 10px 0;
+  border-bottom: 1px solid var(--line-1); width: 100%;
+  transition: color 0.2s;
+}
+.nav-drawer-link:hover { color: var(--gold); border-color: transparent; }
+.nav-drawer-lang {
+  display: flex; gap: 0; margin-top: 32px;
+  border: 1px solid var(--line-3); border-radius: 2px; overflow: hidden;
+  font-family: var(--font-mono); font-size: 13px;
+}
+.nav-drawer-lang span {
+  padding: 10px 24px; cursor: pointer; letter-spacing: 0.24em;
+  color: var(--fg-2); transition: all 0.15s; user-select: none; font-weight: 500;
+}
+.nav-drawer-lang span.on { background: var(--gold); color: #0d0d0d; font-weight: 700; }
+
+@media (max-width: 768px) {
+  .nav-burger { display: flex; }
+  nav.top .links { display: none; }
+  nav.top .lang-pill { display: none; }
+  nav.top .brand-mark { letter-spacing: 0.18em; font-size: 13px; }
+  .bw-intro-block { grid-template-columns: 1fr !important; gap: 40px; }
+  .bw-intro-right .bw-schema-legend { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 <body>
@@ -1071,11 +1123,26 @@ html[data-lang="en"] [data-i18n="es"] { display: none !important; }
     <a href="#estudio"><span data-i18n="es">Estudio</span><span data-i18n="en">Studio</span></a>
     <a href="#contacto"><span data-i18n="es">Contacto</span><span data-i18n="en">Contact</span></a>
   </div>
+  <button class="nav-burger" id="navBurger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
   <div class="lang-pill" id="langSwitcher">
     <span data-set-lang="es" class="on">ES</span>
     <span data-set-lang="en">EN</span>
   </div>
 </nav>
+<div class="nav-mobile-drawer" id="navDrawer">
+  <a href="#work" class="nav-drawer-link" onclick="closeDrawer()"><span data-i18n="es">Trabajo</span><span data-i18n="en">Work</span></a>
+  <a href="#tours360" class="nav-drawer-link" onclick="closeDrawer()"><span data-i18n="es">Tours 360°</span><span data-i18n="en">360° Tours</span></a>
+  <a href="#films" class="nav-drawer-link" onclick="closeDrawer()"><span data-i18n="es">Animaciones</span><span data-i18n="en">Films</span></a>
+  <a href="#backwalls" class="nav-drawer-link" onclick="closeDrawer()">Backwalls</a>
+  <a href="#estudio" class="nav-drawer-link" onclick="closeDrawer()"><span data-i18n="es">Estudio</span><span data-i18n="en">Studio</span></a>
+  <a href="#contacto" class="nav-drawer-link" onclick="closeDrawer()"><span data-i18n="es">Contacto</span><span data-i18n="en">Contact</span></a>
+  <div class="nav-drawer-lang">
+    <span data-set-lang="es" class="on" id="drawerLangEs">ES</span>
+    <span data-set-lang="en" id="drawerLangEn">EN</span>
+  </div>
+</div>
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
@@ -2216,6 +2283,30 @@ window.addEventListener('scroll', () => {
 
 /* ===================== Carga inicial ===================== */
 window.addEventListener('load', onScrollParallax);
+
+/* ===================== MOBILE NAV DRAWER ===================== */
+const navBurger = document.getElementById('navBurger');
+const navDrawer = document.getElementById('navDrawer');
+function closeDrawer() {
+  navBurger.classList.remove('is-open');
+  navDrawer.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+navBurger.addEventListener('click', () => {
+  const open = navDrawer.classList.toggle('is-open');
+  navBurger.classList.toggle('is-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+// Sync lang switcher with drawer lang buttons
+document.querySelectorAll('.nav-drawer-lang span[data-set-lang]').forEach(s => {
+  s.addEventListener('click', () => {
+    setLang(s.dataset.setLang);
+    document.querySelectorAll('.nav-drawer-lang span[data-set-lang]').forEach(d => {
+      d.classList.toggle('on', d.dataset.setLang === s.dataset.setLang);
+    });
+  });
+});
+
 </script>
 </body>
 </html>
